@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
 import { Car } from "lucide-react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
+import { MobileNav } from "./MobileNav"; // Import MobileNav
 
 export function Header() {
   return (
@@ -12,16 +13,18 @@ export function Header() {
       className="fixed top-0 left-0 right-0 z-50 glass-card border-b"
     >
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-        <motion.div 
-          className="flex items-center gap-3"
-          whileHover={{ scale: 1.02 }}
-        >
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-            <Car className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <Link to="/" className="font-display text-xl font-bold">AutoGenius</Link> {/* Link to home */}
-        </motion.div>
+        {/* Mobile Nav Trigger and Brand */}
+        <div className="flex items-center gap-3">
+          <MobileNav /> {/* Mobile navigation component */}
+          <Link to="/" className="flex items-center gap-3" whileHover={{ scale: 1.02 }}>
+            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+              <Car className="w-5 h-5 text-primary-foreground" />
+            </div>
+            <span className="font-display text-xl font-bold">AutoGenius</span>
+          </Link>
+        </div>
         
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           <Link to="/#how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             How it Works
@@ -31,6 +34,9 @@ export function Header() {
           </Link>
           <Link to="/#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             About
+          </Link>
+          <Link to="/#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            Contact
           </Link>
         </nav>
 
