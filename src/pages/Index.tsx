@@ -94,7 +94,9 @@ const Index = () => {
             <div id="about" className="scroll-mt-24">
               <AboutSection /> {/* New AboutSection */}
             </div>
-            <CallToActionSection onGetStarted={handleGetStarted} /> {/* CallToActionSection moved after AboutSection */}
+            <div id="contact" className="scroll-mt-24"> {/* Added ID for contact link */}
+              <CallToActionSection onGetStarted={handleGetStarted} />
+            </div>
           </motion.div>
         ) : currentStep === 'preferences' ? (
           <motion.div
