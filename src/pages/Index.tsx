@@ -7,6 +7,7 @@ import { Recommendations } from "@/components/Recommendations";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CallToActionSection } from "@/components/CallToActionSection";
+import { AboutSection } from "@/components/AboutSection"; // Import the new AboutSection
 import { Footer } from "@/components/Footer";
 import { Car, UserPreferences, getRecommendations } from "@/lib/carData";
 
@@ -90,9 +91,10 @@ const Index = () => {
             <div id="our-selection" className="scroll-mt-24">
               <TestimonialsSection />
             </div>
-            <div id="about" className="scroll-mt-24"> {/* Renamed from call-to-action for consistency with header nav */}
-              <CallToActionSection onGetStarted={handleGetStarted} />
+            <div id="about" className="scroll-mt-24">
+              <AboutSection /> {/* New AboutSection */}
             </div>
+            <CallToActionSection onGetStarted={handleGetStarted} /> {/* CallToActionSection moved after AboutSection */}
           </motion.div>
         ) : currentStep === 'preferences' ? (
           <motion.div
