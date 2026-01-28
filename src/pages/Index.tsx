@@ -4,6 +4,9 @@ import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { PreferencesForm } from "@/components/PreferencesForm";
 import { Recommendations } from "@/components/Recommendations";
+import { FeaturesSection } from "@/components/FeaturesSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { CallToActionSection } from "@/components/CallToActionSection";
 import { Car, UserPreferences, getRecommendations } from "@/lib/carData";
 
 type Step = 'hero' | 'preferences' | 'results';
@@ -74,12 +77,15 @@ const Index = () => {
           </motion.div>
         ) : currentStep === 'hero' ? (
           <motion.div
-            key="hero"
+            key="hero-landing"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <HeroSection onGetStarted={handleGetStarted} />
+            <FeaturesSection />
+            <TestimonialsSection />
+            <CallToActionSection onGetStarted={handleGetStarted} />
           </motion.div>
         ) : currentStep === 'preferences' ? (
           <motion.div
