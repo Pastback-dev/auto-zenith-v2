@@ -7,7 +7,7 @@ import { Recommendations } from "@/components/Recommendations";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CallToActionSection } from "@/components/CallToActionSection";
-import { Footer } from "@/components/Footer"; // Import the new Footer component
+import { Footer } from "@/components/Footer";
 import { Car, UserPreferences, getRecommendations } from "@/lib/carData";
 
 type Step = 'hero' | 'preferences' | 'results';
@@ -84,9 +84,15 @@ const Index = () => {
             exit={{ opacity: 0 }}
           >
             <HeroSection onGetStarted={handleGetStarted} />
-            <FeaturesSection />
-            <TestimonialsSection />
-            <CallToActionSection onGetStarted={handleGetStarted} />
+            <div id="how-it-works" className="scroll-mt-24">
+              <FeaturesSection />
+            </div>
+            <div id="our-selection" className="scroll-mt-24">
+              <TestimonialsSection />
+            </div>
+            <div id="about" className="scroll-mt-24"> {/* Renamed from call-to-action for consistency with header nav */}
+              <CallToActionSection onGetStarted={handleGetStarted} />
+            </div>
           </motion.div>
         ) : currentStep === 'preferences' ? (
           <motion.div
@@ -118,7 +124,7 @@ const Index = () => {
         )}
       </AnimatePresence>
 
-      <Footer /> {/* Using the new Footer component */}
+      <Footer />
     </div>
   );
 };

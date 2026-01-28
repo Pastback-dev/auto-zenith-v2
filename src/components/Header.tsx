@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
 import { Car } from "lucide-react";
+import { Link } from "react-router-dom"; // Import Link
 
 export function Header() {
   return (
@@ -18,19 +19,19 @@ export function Header() {
           <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
             <Car className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="font-display text-xl font-bold">AutoGenius</span>
+          <Link to="/" className="font-display text-xl font-bold">AutoGenius</Link> {/* Link to home */}
         </motion.div>
         
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/#how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             How it Works
-          </a>
-          <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          </Link>
+          <Link to="/#our-selection" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             Our Selection
-          </a>
-          <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          </Link>
+          <Link to="/#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             About
-          </a>
+          </Link>
         </nav>
 
         <ThemeToggle />
