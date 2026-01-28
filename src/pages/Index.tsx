@@ -7,6 +7,7 @@ import { Recommendations } from "@/components/Recommendations";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CallToActionSection } from "@/components/CallToActionSection";
+import { Footer } from "@/components/Footer"; // Import the new Footer component
 import { Car, UserPreferences, getRecommendations } from "@/lib/carData";
 
 type Step = 'hero' | 'preferences' | 'results';
@@ -117,14 +118,7 @@ const Index = () => {
         )}
       </AnimatePresence>
 
-      {/* Footer */}
-      <footer className="py-8 border-t border-border">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-sm text-muted-foreground">
-            © 2026 AutoGenius. Premium car recommendations powered by AI.
-          </p>
-        </div>
-      </footer>
+      <Footer /> {/* Using the new Footer component */}
     </div>
   );
 };
