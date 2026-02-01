@@ -4,7 +4,11 @@ import { Car } from "lucide-react";
 import { Link } from "react-router-dom";
 import { MobileNav } from "./MobileNav"; // Import MobileNav
 
-export function Header() {
+interface HeaderProps {
+  onContactClick: () => void;
+}
+
+export function Header({ onContactClick }: HeaderProps) {
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
@@ -15,7 +19,7 @@ export function Header() {
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         {/* Mobile Nav Trigger and Brand */}
         <div className="flex items-center gap-3">
-          <MobileNav /> {/* Mobile navigation component */}
+          <MobileNav onContactClick={onContactClick} /> {/* Pass handler to MobileNav */}
           <Link to="/" className="flex items-center gap-3" whileHover={{ scale: 1.02 }}>
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
               <Car className="w-5 h-5 text-primary-foreground" />
@@ -35,9 +39,9 @@ export function Header() {
           <Link to="/#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             About
           </Link>
-          <Link to="/#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <button onClick={onContactClick} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             Contact
-          </Link>
+          </button>
         </nav>
 
         <ThemeToggle />

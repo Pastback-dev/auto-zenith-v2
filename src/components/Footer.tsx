@@ -2,7 +2,11 @@ import { motion } from "framer-motion";
 import { Car, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export function Footer() {
+interface FooterProps {
+  onContactClick: () => void;
+}
+
+export function Footer({ onContactClick }: FooterProps) {
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
@@ -45,9 +49,9 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/#contact" className="text-muted-foreground hover:text-primary transition-colors">
+              <button onClick={onContactClick} className="text-muted-foreground hover:text-primary transition-colors">
                 Contact
-              </Link>
+              </button>
             </li>
           </ul>
         </div>

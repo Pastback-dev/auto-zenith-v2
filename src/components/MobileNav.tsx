@@ -6,7 +6,11 @@ import { Menu, Car } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
 
-export function MobileNav() {
+interface MobileNavProps {
+  onContactClick: () => void;
+}
+
+export function MobileNav({ onContactClick }: MobileNavProps) {
   const [open, setOpen] = useState(false);
 
   const closeSheet = () => setOpen(false);
@@ -61,16 +65,17 @@ export function MobileNav() {
           >
             About
           </NavLink>
-          <NavLink
-            to="/#contact"
+          <button
+            onClick={() => {
+              onContactClick();
+              closeSheet();
+            }}
             className={cn(
-              "block px-4 py-2 rounded-lg text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors",
+              "block w-full text-left px-4 py-2 rounded-lg text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors",
             )}
-            activeClassName="bg-secondary text-foreground"
-            onClick={closeSheet}
           >
             Contact
-          </NavLink>
+          </button>
         </nav>
       </SheetContent>
     </Sheet>

@@ -7,16 +7,18 @@ import { Recommendations } from "@/components/Recommendations";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CallToActionSection } from "@/components/CallToActionSection";
-import { AboutSection } from "@/components/AboutSection"; // Import the new AboutSection
+import { AboutSection } from "@/components/AboutSection";
+import { ContactFormSection } from "@/components/ContactFormSection"; // Import the new ContactFormSection
 import { Footer } from "@/components/Footer";
 import { Car, UserPreferences, getRecommendations } from "@/lib/carData";
 
-type Step = 'hero' | 'preferences' | 'results';
+type Step = 'hero' | 'preferences' | 'results' | 'contact'; // Add 'contact' step
 
 const Index = () => {
   const [currentStep, setCurrentStep] = useState<Step>('hero');
   const [recommendations, setRecommendations] = useState<Car[]>([]);
   const [preferences, setPreferences] = useState<UserPreferences | null>(null);
+  const [selectedCarsForContact, setSelectedCarsForContact] = useState<Car[]>([]); // New state for selected cars
   const [isLoading, setIsLoading] = useState(false);
 
   const handleGetStarted = useCallback(() => {
@@ -36,23 +38,37 @@ const Index = () => {
     setCurrentStep('results');
   }, []);
 
+  const handleContactUs = useCallback((prefs: UserPreferences | null, cars: Car[] = []) => {
+    setPreferences(prefs);
+    setSelectedCarsForContact(cars);
+    setCurrentStep('contact');
+  }, []);
+
   const handleBack = useCallback(() => {
     if (currentStep === 'preferences') {
       setCurrentStep('hero');
     } else if (currentStep === 'results') {
       setCurrentStep('preferences');
+    } else if (currentStep === 'contact') {
+      // If coming from results, go back to results. Otherwise, go back to hero/preferences.
+      if (recommendations.length > 0) { // Check if recommendations were generated
+        setCurrentStep('results');
+      } else {
+        setCurrentStep('hero'); // Or 'preferences' if we want to allow direct contact from preferences
+      }
     }
-  }, [currentStep]);
+  }, [currentStep, recommendations.length]);
 
   const handleReset = useCallback(() => {
     setCurrentStep('hero');
     setRecommendations([]);
     setPreferences(null);
+    setSelectedCarsForContact([]);
   }, []);
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden scrollbar-premium">
-      <Header />
+      <Header onContactClick={() => handleContactUs(null)} /> {/* Pass handler for header contact link */}
       
       <AnimatePresence mode="wait">
         {isLoading ? (
@@ -92,9 +108,9 @@ const Index = () => {
               <TestimonialsSection />
             </div>
             <div id="about" className="scroll-mt-24">
-              <AboutSection /> {/* New AboutSection */}
+              <AboutSection />
             </div>
-            <div id="contact" className="scroll-mt-24"> {/* Added ID for contact link */}
+            <div id="contact" className="scroll-mt-24">
               <CallToActionSection onGetStarted={handleGetStarted} />
             </div>
           </motion.div>
@@ -111,7 +127,7 @@ const Index = () => {
               onBack={handleBack}
             />
           </motion.div>
-        ) : (
+        ) : currentStep === 'results' ? (
           <motion.div
             key="results"
             initial={{ opacity: 0 }}
@@ -123,12 +139,27 @@ const Index = () => {
               preferences={preferences!}
               onBack={handleBack}
               onReset={handleReset}
+              onContactUs={handleContactUs} // Pass the new handler
+            />
+          </motion.div>
+        ) : ( // currentStep === 'contact'
+          <motion.div
+            key="contact"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="pt-16"
+          >
+            <ContactFormSection 
+              initialPreferences={preferences}
+              selectedCars={selectedCarsForContact}
+              onBack={handleBack}
             />
           </motion.div>
         )}
       </AnimatePresence>
 
-      <Footer />
+      <Footer onContactClick={() => handleContactUs(null)} /> {/* Pass handler for footer contact link */}
     </div>
   );
 };

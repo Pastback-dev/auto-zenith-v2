@@ -3,16 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CarCard } from "@/components/CarCard";
 import { Car, UserPreferences } from "@/lib/carData";
-import { ArrowLeft, LayoutGrid, Columns, Sparkles, RotateCcw } from "lucide-react";
+import { ArrowLeft, LayoutGrid, Columns, Sparkles, RotateCcw, Mail } from "lucide-react"; // Import Mail icon
 
 interface RecommendationsProps {
   cars: Car[];
   preferences: UserPreferences;
   onBack: () => void;
   onReset: () => void;
+  onContactUs: (prefs: UserPreferences, cars: Car[]) => void; // New prop for contact
 }
 
-export function Recommendations({ cars, preferences, onBack, onReset }: RecommendationsProps) {
+export function Recommendations({ cars, preferences, onBack, onReset, onContactUs }: RecommendationsProps) {
   const [view, setView] = useState<'grid' | 'comparison'>('grid');
   const [selectedCars, setSelectedCars] = useState<string[]>([]);
 
@@ -24,6 +25,11 @@ export function Recommendations({ cars, preferences, onBack, onReset }: Recommen
           ? [...prev, carId]
           : prev
     );
+  };
+
+  const handleContactClick = () => {
+    const carsToContact = cars.filter(car => selectedCars.includes(car.id));
+    onContactUs(preferences, carsToContact);
   };
 
   const formatPrice = (value: number) => {
@@ -214,20 +220,31 @@ export function Recommendations({ cars, preferences, onBack, onReset }: Recommen
           )}
         </AnimatePresence>
 
-        {/* Selection hint */}
-        {view === 'grid' && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-center text-muted-foreground mt-8"
+        {/* Selection hint and Contact button */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="text-center mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          {view === 'grid' && (
+            <p className="text-muted-foreground">
+              Click on cards to select up to 3 vehicles for comparison
+              {selectedCars.length > 0 && (
+                <span className="ml-2 text-primary">({selectedCars.length}/3 selected)</span>
+              )}
+            </p>
+          )}
+          <Button 
+            variant="default" 
+            onClick={handleContactClick} 
+            className="group"
+            disabled={selectedCars.length === 0 && view === 'grid'} // Disable if no cars selected in grid view
           >
-            Click on cards to select up to 3 vehicles for comparison
-            {selectedCars.length > 0 && (
-              <span className="ml-2 text-primary">({selectedCars.length}/3 selected)</span>
-            )}
-          </motion.p>
-        )}
+            Contact Us About Selection
+            <Mail className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
