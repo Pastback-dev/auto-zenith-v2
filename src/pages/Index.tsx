@@ -3,35 +3,40 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { PreferencesForm } from "@/components/PreferencesForm";
+import { PreferencesSummarySection } from "@/components/PreferencesSummarySection"; // Import new summary component
 import { Recommendations } from "@/components/Recommendations";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CallToActionSection } from "@/components/CallToActionSection";
 import { AboutSection } from "@/components/AboutSection";
-import { ContactFormSection } from "@/components/ContactFormSection"; // Import the new ContactFormSection
+import { ContactFormSection } from "@/components/ContactFormSection";
 import { Footer } from "@/components/Footer";
 import { Car, UserPreferences, getRecommendations } from "@/lib/carData";
+import { DollarSign, Mail } from "lucide-react"; // Import icons for summary section
 
-type Step = 'hero' | 'preferences' | 'results' | 'contact'; // Add 'contact' step
+type Step = 'hero' | 'preferences' | 'summary' | 'results' | 'contact'; // Add 'summary' step
 
 const Index = () => {
   const [currentStep, setCurrentStep] = useState<Step>('hero');
   const [recommendations, setRecommendations] = useState<Car[]>([]);
   const [preferences, setPreferences] = useState<UserPreferences | null>(null);
-  const [selectedCarsForContact, setSelectedCarsForContact] = useState<Car[]>([]); // New state for selected cars
+  const [selectedCarsForContact, setSelectedCarsForContact] = useState<Car[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleGetStarted = useCallback(() => {
     setCurrentStep('preferences');
   }, []);
 
-  const handlePreferencesSubmit = useCallback(async (prefs: UserPreferences) => {
+  // This handler is now for when PreferencesForm is 'Ready'
+  const handlePreferencesComplete = useCallback((prefs: UserPreferences) => {
     setPreferences(prefs);
+    setCurrentStep('summary'); // Go to summary page
+  }, []);
+
+  // This handler is for when user clicks 'Get Recommendations' from summary
+  const handleGetRecommendationsFromSummary = useCallback(async (prefs: UserPreferences) => {
     setIsLoading(true);
-    
-    // Simulate AI processing
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+    await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate AI processing
     const results = getRecommendations(prefs);
     setRecommendations(results);
     setIsLoading(false);
@@ -47,17 +52,21 @@ const Index = () => {
   const handleBack = useCallback(() => {
     if (currentStep === 'preferences') {
       setCurrentStep('hero');
-    } else if (currentStep === 'results') {
+    } else if (currentStep === 'summary') {
       setCurrentStep('preferences');
+    } else if (currentStep === 'results') {
+      setCurrentStep('summary'); // Go back to summary from results
     } else if (currentStep === 'contact') {
-      // If coming from results, go back to results. Otherwise, go back to hero/preferences.
-      if (recommendations.length > 0) { // Check if recommendations were generated
+      // If coming from results, go back to results. If from summary, go back to summary.
+      if (recommendations.length > 0) {
         setCurrentStep('results');
+      } else if (preferences) { // If preferences exist, assume came from summary or preferences
+        setCurrentStep('summary');
       } else {
-        setCurrentStep('hero'); // Or 'preferences' if we want to allow direct contact from preferences
+        setCurrentStep('hero');
       }
     }
-  }, [currentStep, recommendations.length]);
+  }, [currentStep, recommendations.length, preferences]);
 
   const handleReset = useCallback(() => {
     setCurrentStep('hero');
@@ -68,7 +77,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden scrollbar-premium">
-      <Header onContactClick={() => handleContactUs(null)} /> {/* Pass handler for header contact link */}
+      <Header onContactClick={() => handleContactUs(null)} />
       
       <AnimatePresence mode="wait">
         {isLoading ? (
@@ -123,7 +132,23 @@ const Index = () => {
             className="pt-16"
           >
             <PreferencesForm 
-              onSubmit={handlePreferencesSubmit}
+              onSubmit={handleGetRecommendationsFromSummary} // This is not used directly by PreferencesForm anymore
+              onComplete={handlePreferencesComplete} // New handler for when form is 'Ready'
+              onBack={handleBack}
+            />
+          </motion.div>
+        ) : currentStep === 'summary' ? (
+          <motion.div
+            key="summary"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="pt-16"
+          >
+            <PreferencesSummarySection
+              preferences={preferences!}
+              onGetRecommendations={handleGetRecommendationsFromSummary}
+              onProceedToContact={handleContactUs}
               onBack={handleBack}
             />
           </motion.div>
@@ -139,7 +164,7 @@ const Index = () => {
               preferences={preferences!}
               onBack={handleBack}
               onReset={handleReset}
-              onContactUs={handleContactUs} // Pass the new handler
+              onContactUs={handleContactUs}
             />
           </motion.div>
         ) : ( // currentStep === 'contact'
@@ -159,7 +184,7 @@ const Index = () => {
         )}
       </AnimatePresence>
 
-      <Footer onContactClick={() => handleContactUs(null)} /> {/* Pass handler for footer contact link */}
+      <Footer onContactClick={() => handleContactUs(null)} />
     </div>
   );
 };

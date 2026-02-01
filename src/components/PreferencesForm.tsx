@@ -21,7 +21,8 @@ import {
 import { UserPreferences } from "@/lib/carData";
 
 interface PreferencesFormProps {
-  onSubmit: (preferences: UserPreferences) => void;
+  onSubmit: (preferences: UserPreferences) => void; // This will now be for getting recommendations
+  onComplete: (preferences: UserPreferences) => void; // New prop for completing the form to show summary
   onBack: () => void;
 }
 
@@ -55,7 +56,7 @@ const maintenanceOptions = [
   { id: 'performance', label: 'Performance First' },
 ];
 
-export function PreferencesForm({ onSubmit, onBack }: PreferencesFormProps) {
+export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFormProps) {
   const [step, setStep] = useState(1);
   const [budget, setBudget] = useState<[number, number]>([30000, 150000]);
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
@@ -79,8 +80,8 @@ export function PreferencesForm({ onSubmit, onBack }: PreferencesFormProps) {
     );
   };
 
-  const handleSubmit = () => {
-    onSubmit({
+  const handleReady = () => {
+    onComplete({
       budget,
       carType: selectedTypes,
       usage: selectedUsage,
@@ -379,10 +380,10 @@ export function PreferencesForm({ onSubmit, onBack }: PreferencesFormProps) {
             ) : (
               <Button
                 variant="hero"
-                onClick={handleSubmit}
+                onClick={handleReady} // Changed to handleReady
                 className="group"
               >
-                Get Recommendations
+                Ready
                 <Sparkles className="w-4 h-4 ml-2" />
               </Button>
             )}
