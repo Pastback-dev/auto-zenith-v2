@@ -1,9 +1,9 @@
-import { useState, useCallback, useEffect } from "react"; // Import useEffect for logging
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { PreferencesForm } from "@/components/PreferencesForm";
-import { PreferencesSummarySection } from "@/components/PreferencesSummarySection"; // Import new summary component
+import { PreferencesSummarySection } from "@/components/PreferencesSummarySection";
 import { Recommendations } from "@/components/Recommendations";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
@@ -12,9 +12,9 @@ import { AboutSection } from "@/components/AboutSection";
 import { ContactFormSection } from "@/components/ContactFormSection";
 import { Footer } from "@/components/Footer";
 import { Car, UserPreferences, getRecommendations } from "@/lib/carData";
-import { DollarSign, Mail } from "lucide-react"; // Import icons for summary section
+import { DollarSign, Mail } from "lucide-react";
 
-type Step = 'hero' | 'preferences' | 'summary' | 'results' | 'contact'; // Add 'summary' step
+type Step = 'hero' | 'preferences' | 'summary' | 'results' | 'contact';
 
 const Index = () => {
   const [currentStep, setCurrentStep] = useState<Step>('hero');
@@ -23,7 +23,6 @@ const Index = () => {
   const [selectedCarsForContact, setSelectedCarsForContact] = useState<Car[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Log current step for debugging
   useEffect(() => {
     console.log("Current application step:", currentStep);
   }, [currentStep]);
@@ -32,11 +31,12 @@ const Index = () => {
     setCurrentStep('preferences');
   }, []);
 
-  // This handler is now for when PreferencesForm is 'Ready'
+  // When PreferencesForm is 'Ready', go directly to contact form
   const handlePreferencesComplete = useCallback((prefs: UserPreferences) => {
-    console.log("Preferences completed:", prefs); // Added console log
+    console.log("Preferences completed:", prefs);
     setPreferences(prefs);
-    setCurrentStep('summary'); // Go to summary page
+    setSelectedCarsForContact([]); // Clear any previous selections if coming from preferences
+    setCurrentStep('contact'); // Go directly to contact form
   }, []);
 
   // This handler is for when user clicks 'Get Recommendations' from summary
@@ -61,13 +61,15 @@ const Index = () => {
     } else if (currentStep === 'summary') {
       setCurrentStep('preferences');
     } else if (currentStep === 'results') {
-      setCurrentStep('summary'); // Go back to summary from results
+      setCurrentStep('summary');
     } else if (currentStep === 'contact') {
-      // If coming from results, go back to results. If from summary, go back to summary.
+      // If coming from results, go back to results.
+      // If coming from preferences (via handlePreferencesComplete), go back to preferences.
+      // If coming from header/footer contact button, go back to hero.
       if (recommendations.length > 0) {
         setCurrentStep('results');
-      } else if (preferences) { // If preferences exist, assume came from summary or preferences
-        setCurrentStep('summary');
+      } else if (preferences) { // If preferences exist, assume came from preferences form
+        setCurrentStep('preferences');
       } else {
         setCurrentStep('hero');
       }
@@ -139,11 +141,11 @@ const Index = () => {
           >
             <PreferencesForm 
               onSubmit={handleGetRecommendationsFromSummary} // This is not used directly by PreferencesForm anymore
-              onComplete={handlePreferencesComplete} // New handler for when form is 'Ready'
+              onComplete={handlePreferencesComplete} // Now goes directly to contact
               onBack={handleBack}
             />
           </motion.div>
-        ) : currentStep === 'summary' ? (
+        ) : currentStep === 'summary' ? ( // This step is now only reachable from 'results' if user wants to go back
           <motion.div
             key="summary"
             initial={{ opacity: 0 }}
@@ -151,7 +153,7 @@ const Index = () => {
             exit={{ opacity: 0 }}
             className="pt-16"
           >
-            {preferences ? ( // Conditional rendering for safety
+            {preferences ? (
               <PreferencesSummarySection
                 preferences={preferences}
                 onGetRecommendations={handleGetRecommendationsFromSummary}
