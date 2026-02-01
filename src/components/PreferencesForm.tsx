@@ -81,6 +81,7 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
   };
 
   const handleReady = () => {
+    console.log("Ready button clicked, calling onComplete."); // Added console log
     onComplete({
       budget,
       carType: selectedTypes,

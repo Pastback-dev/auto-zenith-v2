@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react"; // Import useEffect for logging
 import { motion, AnimatePresence } from "framer-motion";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
@@ -23,12 +23,18 @@ const Index = () => {
   const [selectedCarsForContact, setSelectedCarsForContact] = useState<Car[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  // Log current step for debugging
+  useEffect(() => {
+    console.log("Current application step:", currentStep);
+  }, [currentStep]);
+
   const handleGetStarted = useCallback(() => {
     setCurrentStep('preferences');
   }, []);
 
   // This handler is now for when PreferencesForm is 'Ready'
   const handlePreferencesComplete = useCallback((prefs: UserPreferences) => {
+    console.log("Preferences completed:", prefs); // Added console log
     setPreferences(prefs);
     setCurrentStep('summary'); // Go to summary page
   }, []);
@@ -145,12 +151,20 @@ const Index = () => {
             exit={{ opacity: 0 }}
             className="pt-16"
           >
-            <PreferencesSummarySection
-              preferences={preferences!}
-              onGetRecommendations={handleGetRecommendationsFromSummary}
-              onProceedToContact={handleContactUs}
-              onBack={handleBack}
-            />
+            {preferences ? ( // Conditional rendering for safety
+              <PreferencesSummarySection
+                preferences={preferences}
+                onGetRecommendations={handleGetRecommendationsFromSummary}
+                onProceedToContact={handleContactUs}
+                onBack={handleBack}
+              />
+            ) : (
+              <div className="text-center text-red-500 pt-20">
+                <h2 className="font-display text-3xl font-bold mb-4">Error Loading Preferences</h2>
+                <p className="text-lg text-muted-foreground">Please go back and re-enter your preferences.</p>
+                <Button onClick={handleBack} className="mt-8">Go Back</Button>
+              </div>
+            )}
           </motion.div>
         ) : currentStep === 'results' ? (
           <motion.div
