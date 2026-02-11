@@ -15,7 +15,7 @@ i18n
       de: { translation: de },
       fr: { translation: fr }
     },
-    lng: 'de', // Set German as default
+    lng: 'en', // Set English as default
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false
