@@ -2,15 +2,15 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { 
-  Car, 
-  Zap, 
-  Leaf, 
-  Gauge, 
-  Gem, 
-  Users, 
-  Briefcase, 
-  MapPin, 
+import {
+  Car,
+  Zap,
+  Leaf,
+  Gauge,
+  Gem,
+  Users,
+  Briefcase,
+  MapPin,
   Sparkles,
   ArrowRight,
   ArrowLeft,
@@ -67,16 +67,16 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
   ];
 
   const toggleType = (type: string) => {
-    setSelectedTypes(prev => 
-      prev.includes(type) 
+    setSelectedTypes(prev =>
+      prev.includes(type)
         ? prev.filter(t => t !== type)
         : [...prev, type]
     );
   };
 
   const toggleUsage = (usage: string) => {
-    setSelectedUsage(prev => 
-      prev.includes(usage) 
+    setSelectedUsage(prev =>
+      prev.includes(usage)
         ? prev.filter(u => u !== usage)
         : [...prev, usage]
     );
@@ -119,19 +119,17 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
             {[1, 2, 3].map((s) => (
               <div key={s} className="flex items-center">
                 <motion.div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
-                    s <= step 
-                      ? 'bg-primary text-primary-foreground' 
+                  className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${s <= step
+                      ? 'bg-primary text-primary-foreground'
                       : 'bg-muted text-muted-foreground'
-                  }`}
+                    }`}
                   animate={{ scale: s === step ? 1.1 : 1 }}
                 >
                   {s < step ? <Check className="w-5 h-5" /> : s}
                 </motion.div>
                 {s < 3 && (
-                  <div className={`w-24 md:w-32 h-1 mx-2 rounded-full transition-colors duration-300 ${
-                    s < step ? 'bg-primary' : 'bg-muted'
-                  }`} />
+                  <div className={`w-24 md:w-32 h-1 mx-2 rounded-full transition-colors duration-300 ${s < step ? 'bg-primary' : 'bg-muted'
+                    }`} />
                 )}
               </div>
             ))}
@@ -186,9 +184,8 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                       <motion.button
                         key={type.id}
                         onClick={() => toggleType(type.id)}
-                        className={`p-4 rounded-xl border-2 transition-all duration-300 ${
-                          isSelected ? 'border-primary bg-primary/10' : 'border-border hover:border-primary/50'
-                        }`}
+                        className={`p-4 rounded-xl border-2 transition-all duration-300 ${isSelected ? 'border-primary bg-primary/10' : 'border-border hover:border-primary/50'
+                          }`}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
@@ -222,9 +219,8 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                       <motion.button
                         key={option.id}
                         onClick={() => toggleUsage(option.id)}
-                        className={`p-4 rounded-xl border-2 transition-all duration-300 ${
-                          isSelected ? 'border-primary bg-primary/10' : 'border-border hover:border-primary/50'
-                        }`}
+                        className={`p-4 rounded-xl border-2 transition-all duration-300 ${isSelected ? 'border-primary bg-primary/10' : 'border-border hover:border-primary/50'
+                          }`}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
@@ -244,9 +240,8 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                     <motion.button
                       key={option.id}
                       onClick={() => setFuelPreference(option.id)}
-                      className={`p-3 rounded-xl border-2 transition-all duration-300 text-sm font-medium ${
-                        fuelPreference === option.id ? 'border-primary bg-primary/10 text-primary' : 'border-border hover:border-primary/50'
-                      }`}
+                      className={`p-3 rounded-xl border-2 transition-all duration-300 text-sm font-medium ${fuelPreference === option.id ? 'border-primary bg-primary/10 text-primary' : 'border-border hover:border-primary/50'
+                        }`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -278,9 +273,8 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                     <motion.button
                       key={option.id}
                       onClick={() => setMaintenancePriority(option.id)}
-                      className={`p-4 rounded-xl border-2 transition-all duration-300 ${
-                        maintenancePriority === option.id ? 'border-primary bg-primary/10' : 'border-border hover:border-primary/50'
-                      }`}
+                      className={`p-4 rounded-xl border-2 transition-all duration-300 ${maintenancePriority === option.id ? 'border-primary bg-primary/10' : 'border-border hover:border-primary/50'
+                        }`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -296,19 +290,19 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                   </h4>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                      <span className="text-muted-foreground">Budget:</span>
+                      <span className="text-muted-foreground">{t('contact.budget_label')}</span>
                       <span className="ml-2 font-medium">{formatPrice(budget[0])} - {formatPrice(budget[1])}</span>
                     </div>
                     <div>
-                      <span className="text-muted-foreground">Typen:</span>
+                      <span className="text-muted-foreground">{t('contact.types_label')}</span>
                       <span className="ml-2 font-medium">{selectedTypes.length ? selectedTypes.map(id => t(`preferences.types.${id}`)).join(', ') : t('common.any')}</span>
                     </div>
                     <div>
-                      <span className="text-muted-foreground">Nutzung:</span>
+                      <span className="text-muted-foreground">{t('contact.usage_label')}</span>
                       <span className="ml-2 font-medium">{selectedUsage.length ? selectedUsage.map(id => t(`preferences.usage.${id.replace('-', '_')}`)).join(', ') : t('common.any')}</span>
                     </div>
                     <div>
-                      <span className="text-muted-foreground">Kraftstoff:</span>
+                      <span className="text-muted-foreground">{t('contact.fuel_label')}</span>
                       <span className="ml-2 font-medium capitalize">{fuelPreference === 'any' ? t('common.any') : t(`preferences.fuel.${fuelPreference}`)}</span>
                     </div>
                   </div>
@@ -322,7 +316,7 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
               {t('common.back')}
             </Button>
-            
+
             {step < 3 ? (
               <Button variant="default" onClick={() => setStep(step + 1)} className="group">
                 {t('common.continue')}

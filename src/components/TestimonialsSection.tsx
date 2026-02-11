@@ -9,19 +9,19 @@ export function TestimonialsSection() {
     {
       quote: t('testimonials.t1_quote'),
       name: "Sarah J.",
-      title: "Zufriedene Kundin",
+      title: t('testimonials.t1_title'),
       avatar: "https://api.dicebear.com/7.x/initials/svg?seed=SJ",
     },
     {
       quote: t('testimonials.t2_quote'),
       name: "Michael T.",
-      title: "Erstkäufer",
+      title: t('testimonials.t2_title'),
       avatar: "https://api.dicebear.com/7.x/initials/svg?seed=MT",
     },
     {
       quote: t('testimonials.t3_quote'),
       name: "Emily R.",
-      title: "Auto-Enthusiastin",
+      title: t('testimonials.t3_title'),
       avatar: "https://api.dicebear.com/7.x/initials/svg?seed=ER",
     },
   ];
@@ -37,9 +37,7 @@ export function TestimonialsSection() {
           className="text-center mb-16"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            {t('testimonials.title').split('Nutzer')[0]}
-            <span className="gradient-text-accent">Nutzer</span>
-            {t('testimonials.title').split('Nutzer')[1]}
+            <span className="gradient-text-accent">{t('testimonials.title')}</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('testimonials.subtitle')}

@@ -20,20 +20,6 @@ import { ArrowLeft, Mail, Sparkles } from "lucide-react";
 import { Car, UserPreferences } from "@/lib/carData";
 import { useTranslation } from "react-i18next";
 
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Der Name muss mindestens 2 Zeichen lang sein.",
-  }),
-  email: z.string().email({
-    message: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
-  }),
-  message: z.string().min(10, {
-    message: "Die Nachricht muss mindestens 10 Zeichen lang sein.",
-  }).max(500, {
-    message: "Die Nachricht darf 500 Zeichen nicht überschreiten.",
-  }),
-});
-
 interface ContactFormSectionProps {
   initialPreferences?: UserPreferences | null;
   selectedCars?: Car[];
@@ -42,6 +28,21 @@ interface ContactFormSectionProps {
 
 export function ContactFormSection({ initialPreferences, selectedCars, onBack }: ContactFormSectionProps) {
   const { t } = useTranslation();
+
+  const formSchema = z.object({
+    name: z.string().min(2, {
+      message: t('contact.validation.name_min'),
+    }),
+    email: z.string().email({
+      message: t('contact.validation.email_invalid'),
+    }),
+    message: z.string().min(10, {
+      message: t('contact.validation.message_min'),
+    }).max(500, {
+      message: t('contact.validation.message_max'),
+    }),
+  });
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -85,18 +86,18 @@ export function ContactFormSection({ initialPreferences, selectedCars, onBack }:
               {initialPreferences && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-4">
                   <div>
-                    <span className="text-muted-foreground">Budget:</span>
+                    <span className="text-muted-foreground">{t('contact.budget_label')}</span>
                     <span className="ml-2 font-medium">{formatPrice(initialPreferences.budget[0])} - {formatPrice(initialPreferences.budget[1])}</span>
                   </div>
                   <div>
-                    <span className="text-muted-foreground">Typen:</span>
+                    <span className="text-muted-foreground">{t('contact.types_label')}</span>
                     <span className="ml-2 font-medium">{initialPreferences.carType.length ? initialPreferences.carType.join(', ') : t('common.any')}</span>
                   </div>
                 </div>
               )}
               {selectedCars && selectedCars.length > 0 && (
                 <div className="mt-4">
-                  <span className="text-muted-foreground">Ausgewählte Autos:</span>
+                  <span className="text-muted-foreground">{t('contact.selected_cars_label')}</span>
                   <ul className="list-disc list-inside ml-2 text-sm font-medium">
                     {selectedCars.map(car => (
                       <li key={car.id}>{car.brand} {car.name} ({formatPrice(car.price)})</li>

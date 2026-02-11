@@ -41,8 +41,11 @@
     "title": "Was unsere Nutzer sagen",
     "subtitle": "Verlassen Sie sich nicht nur auf unser Wort – hören Sie von zufriedenen Kunden, die ihr perfektes Auto gefunden haben.",
     "t1_quote": "AutoGenius hat die Suche nach meinem Traumauto unglaublich einfach gemacht. Die Empfehlungen waren genau richtig!",
+    "t1_title": "Zufriedene Kundin",
     "t2_quote": "Ich war von der Auswahl überwältigt, aber AutoGenius hat sie perfekt eingegrenzt. Die KI-Einblicke waren unbezahlbar.",
-    "t3_quote": "Die Vergleichsfunktion ist ein Game-Changer! Ich konnte die Vor- und Nachteile direkt nebeneinander sehen."
+    "t2_title": "Erstkäufer",
+    "t3_quote": "Die Vergleichsfunktion ist ein Game-Changer! Ich konnte die Vor- und Nachteile direkt nebeneinander sehen.",
+    "t3_title": "Auto-Enthusiastin"
   },
   "about": {
     "title": "Über AutoGenius",
@@ -120,7 +123,18 @@
     "placeholder_email": "ihre@email.de",
     "placeholder_message": "Erzählen Sie uns mehr über Ihre Anfrage...",
     "success": "Ihre Nachricht wurde gesendet!",
-    "success_desc": "Wir werden uns in Kürze bei Ihnen melden."
+    "success_desc": "Wir werden uns in Kürze bei Ihnen melden.",
+    "validation": {
+      "name_min": "Der Name muss mindestens 2 Zeichen lang sein.",
+      "email_invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "message_min": "Die Nachricht muss mindestens 10 Zeichen lang sein.",
+      "message_max": "Die Nachricht darf 500 Zeichen nicht überschreiten."
+    },
+    "budget_label": "Budget:",
+    "types_label": "Typen:",
+    "selected_cars_label": "Ausgewählte Autos:",
+    "usage_label": "Nutzung:",
+    "fuel_label": "Kraftstoff:"
   },
   "footer": {
     "desc": "Ihr intelligenter Partner für die Suche nach dem perfekten Fahrzeug, angetrieben durch fortschrittliche KI.",

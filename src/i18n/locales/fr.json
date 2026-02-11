@@ -41,8 +41,11 @@
     "title": "Avis de nos utilisateurs",
     "subtitle": "Découvrez les témoignages de clients satisfaits qui ont trouvé leur voiture idéale.",
     "t1_quote": "AutoGenius a rendu la recherche de ma voiture de rêve incroyablement facile !",
+    "t1_title": "Cliente satisfaite",
     "t2_quote": "J'étais submergé par les choix, mais l'IA a parfaitement ciblé mes besoins.",
-    "t3_quote": "La fonction de comparaison est géniale ! J'ai pu voir les avantages et inconvénients côte à côte."
+    "t2_title": "Premier acheteur",
+    "t3_quote": "La fonction de comparaison est géniale ! J'ai pu voir les avantages et inconvénients côte à côte.",
+    "t3_title": "Passionnée d'auto"
   },
   "about": {
     "title": "À propos d'AutoGenius",
@@ -120,7 +123,18 @@
     "placeholder_email": "votre@email.com",
     "placeholder_message": "Dites-nous en plus...",
     "success": "Message envoyé !",
-    "success_desc": "Nous vous répondrons sous peu."
+    "success_desc": "Nous vous répondrons sous peu.",
+    "validation": {
+      "name_min": "Le nom doit contenir au moins 2 caractères.",
+      "email_invalid": "Veuillez entrer une adresse e-mail valide.",
+      "message_min": "Le message doit contenir au moins 10 caractères.",
+      "message_max": "Le message ne peut pas dépasser 500 caractères."
+    },
+    "budget_label": "Budget :",
+    "types_label": "Types :",
+    "selected_cars_label": "Voitures sélectionnées :",
+    "usage_label": "Utilisation :",
+    "fuel_label": "Carburant :"
   },
   "footer": {
     "desc": "Votre partenaire intelligent pour trouver le véhicule parfait, propulsé par l'IA.",

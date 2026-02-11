@@ -41,8 +41,11 @@
     "title": "What Our Users Say",
     "subtitle": "Don't just take our word for it – hear from satisfied customers who found their perfect car.",
     "t1_quote": "AutoGenius made finding my dream car incredibly easy. The recommendations were spot on!",
+    "t1_title": "Satisfied Customer",
     "t2_quote": "I was overwhelmed by the choices, but AutoGenius narrowed it down perfectly. The AI insights were invaluable.",
-    "t3_quote": "The comparison feature is a game-changer! I could see the pros and cons right next to each other."
+    "t2_title": "First-time Buyer",
+    "t3_quote": "The comparison feature is a game-changer! I could see the pros and cons right next to each other.",
+    "t3_title": "Car Enthusiast"
   },
   "about": {
     "title": "About AutoGenius",
@@ -120,7 +123,18 @@
     "placeholder_email": "your@email.com",
     "placeholder_message": "Tell us more about your inquiry...",
     "success": "Your message has been sent!",
-    "success_desc": "We'll get back to you shortly."
+    "success_desc": "We'll get back to you shortly.",
+    "validation": {
+      "name_min": "Name must be at least 2 characters.",
+      "email_invalid": "Please enter a valid email address.",
+      "message_min": "Message must be at least 10 characters.",
+      "message_max": "Message cannot exceed 500 characters."
+    },
+    "budget_label": "Budget:",
+    "types_label": "Types:",
+    "selected_cars_label": "Selected Cars:",
+    "usage_label": "Usage:",
+    "fuel_label": "Fuel:"
   },
   "footer": {
     "desc": "Your intelligent partner for finding the perfect vehicle, powered by advanced AI.",
