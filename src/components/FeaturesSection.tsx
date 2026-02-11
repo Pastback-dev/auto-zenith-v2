@@ -1,37 +1,40 @@
 import { motion } from "framer-motion";
-import { Car, Sparkles, DollarSign, Wrench, ShieldCheck, Zap, Users } from "lucide-react";
+import { Sparkles, DollarSign, Wrench, ShieldCheck, Zap, Users } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function FeaturesSection() {
+  const { t } = useTranslation();
+
   const features = [
     {
       icon: Sparkles,
-      title: "AI-Powered Matching",
-      description: "Our advanced AI analyzes your unique needs to find cars that truly fit your lifestyle.",
+      title: t('features.f1_title'),
+      description: t('features.f1_desc'),
     },
     {
       icon: DollarSign,
-      title: "Cost-Effective Choices",
-      description: "Get recommendations that consider not just price, but also long-term ownership costs.",
+      title: t('features.f2_title'),
+      description: t('features.f2_desc'),
     },
     {
       icon: Wrench,
-      title: "Maintenance Insights",
-      description: "Understand the maintenance profile of each vehicle before you make a decision.",
+      title: t('features.f3_title'),
+      description: t('features.f3_desc'),
     },
     {
       icon: ShieldCheck,
-      title: "Safety & Reliability",
-      description: "We prioritize vehicles with high safety ratings and proven reliability records.",
+      title: t('features.f4_title'),
+      description: t('features.f4_desc'),
     },
     {
       icon: Zap,
-      title: "Eco-Friendly Options",
-      description: "Explore a wide range of electric and hybrid vehicles tailored to your green preferences.",
+      title: t('features.f5_title'),
+      description: t('features.f5_desc'),
     },
     {
       icon: Users,
-      title: "Family & Lifestyle Fit",
-      description: "Whether for daily commute or family adventures, find a car that suits every aspect of your life.",
+      title: t('features.f6_title'),
+      description: t('features.f6_desc'),
     },
   ];
 
@@ -46,10 +49,12 @@ export function FeaturesSection() {
           className="text-center mb-16"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            Why Choose <span className="gradient-text">AutoGenius</span>?
+            {t('features.title').split('AutoGenius')[0]}
+            <span className="gradient-text">AutoGenius</span>
+            {t('features.title').split('AutoGenius')[1]}
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            We go beyond basic filters to provide you with personalized, data-driven car recommendations.
+            {t('features.subtitle')}
           </p>
         </motion.div>
 

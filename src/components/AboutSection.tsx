@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import { Car, Brain, Lightbulb, Users } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function AboutSection() {
+  const { t } = useTranslation();
+
   const stats = [
-    { value: "100K+", label: "Users Helped" },
-    { value: "99%", label: "Accuracy Rate" },
-    { value: "50+", label: "Brands Covered" },
+    { value: "100K+", label: t('about.stat1_label') },
+    { value: "99%", label: t('about.stat2_label') },
+    { value: "50+", label: t('about.stat3_label') },
   ];
 
   return (
@@ -19,10 +22,12 @@ export function AboutSection() {
           className="text-center mb-16"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            About <span className="gradient-text-accent">AutoGenius</span>
+            {t('about.title').split('AutoGenius')[0]}
+            <span className="gradient-text-accent">AutoGenius</span>
+            {t('about.title').split('AutoGenius')[1]}
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Revolutionizing the car buying experience with intelligent, personalized recommendations.
+            {t('about.subtitle')}
           </p>
         </motion.div>
 
@@ -35,10 +40,10 @@ export function AboutSection() {
             className="space-y-8"
           >
             <p className="text-lg text-foreground leading-relaxed">
-              At AutoGenius, we believe finding your next car should be an exciting and effortless journey, not a daunting task. We leverage cutting-edge artificial intelligence to understand your unique preferences, lifestyle, and budget, then meticulously match you with vehicles that truly resonate with your needs.
+              {t('about.p1')}
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Our platform goes beyond basic filters, providing deep insights into performance, cost of ownership, and user reviews. We're committed to transparency, accuracy, and empowering you to make informed decisions with confidence.
+              {t('about.p2')}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
               {stats.map((stat, index) => (
@@ -73,19 +78,19 @@ export function AboutSection() {
               <div className="w-20 h-20 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-6">
                 <Car className="w-10 h-10" />
               </div>
-              <h3 className="font-display text-2xl font-bold mb-3 text-center">Our Mission</h3>
+              <h3 className="font-display text-2xl font-bold mb-3 text-center">{t('about.mission_title')}</h3>
               <p className="text-muted-foreground text-center">
-                To simplify the car discovery process, making it enjoyable and efficient for everyone.
+                {t('about.mission_desc')}
               </p>
               <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <Brain className="w-4 h-4 text-primary" /> AI-driven precision
+                  <Brain className="w-4 h-4 text-primary" /> KI-gestützte Präzision
                 </li>
                 <li className="flex items-center gap-2">
-                  <Lightbulb className="w-4 h-4 text-primary" /> Transparent insights
+                  <Lightbulb className="w-4 h-4 text-primary" /> Transparente Einblicke
                 </li>
                 <li className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-primary" /> User-centric design
+                  <Users className="w-4 h-4 text-primary" /> Nutzerzentriertes Design
                 </li>
               </ul>
             </div>

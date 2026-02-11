@@ -1,24 +1,27 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function TestimonialsSection() {
+  const { t } = useTranslation();
+
   const testimonials = [
     {
-      quote: "AutoGenius made finding my dream car incredibly easy. The recommendations were spot-on and saved me hours of research!",
+      quote: t('testimonials.t1_quote'),
       name: "Sarah J.",
-      title: "Happy Customer",
+      title: "Zufriedene Kundin",
       avatar: "https://api.dicebear.com/7.x/initials/svg?seed=SJ",
     },
     {
-      quote: "I was overwhelmed by choices, but AutoGenius narrowed it down perfectly. The AI insights into cost of ownership were invaluable.",
+      quote: t('testimonials.t2_quote'),
       name: "Michael T.",
-      title: "First-time Buyer",
+      title: "Erstkäufer",
       avatar: "https://api.dicebear.com/7.x/initials/svg?seed=MT",
     },
     {
-      quote: "The comparison feature is a game-changer! I could easily see the pros and cons side-by-side. Highly recommend!",
+      quote: t('testimonials.t3_quote'),
       name: "Emily R.",
-      title: "Car Enthusiast",
+      title: "Auto-Enthusiastin",
       avatar: "https://api.dicebear.com/7.x/initials/svg?seed=ER",
     },
   ];
@@ -34,10 +37,12 @@ export function TestimonialsSection() {
           className="text-center mb-16"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            What Our <span className="gradient-text-accent">Users Say</span>
+            {t('testimonials.title').split('Nutzer')[0]}
+            <span className="gradient-text-accent">Nutzer</span>
+            {t('testimonials.title').split('Nutzer')[1]}
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it – hear from satisfied customers who found their perfect ride.
+            {t('testimonials.subtitle')}
           </p>
         </motion.div>
 

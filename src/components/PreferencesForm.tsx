@@ -19,50 +19,52 @@ import {
   Check
 } from "lucide-react";
 import { UserPreferences } from "@/lib/carData";
+import { useTranslation } from "react-i18next";
 
 interface PreferencesFormProps {
-  onSubmit: (preferences: UserPreferences) => void; // This will now be for getting recommendations
-  onComplete: (preferences: UserPreferences) => void; // New prop for completing the form to show summary
+  onSubmit: (preferences: UserPreferences) => void;
+  onComplete: (preferences: UserPreferences) => void;
   onBack: () => void;
 }
 
 const carTypes = [
   { id: 'suv', label: 'SUV', icon: Car },
-  { id: 'sedan', label: 'Sedan', icon: Car },
-  { id: 'electric', label: 'Electric', icon: Zap },
+  { id: 'sedan', label: 'Limousine', icon: Car },
+  { id: 'electric', label: 'Elektro', icon: Zap },
   { id: 'hybrid', label: 'Hybrid', icon: Leaf },
-  { id: 'sport', label: 'Sport', icon: Gauge },
-  { id: 'luxury', label: 'Luxury', icon: Gem },
+  { id: 'sport', label: 'Sportwagen', icon: Gauge },
+  { id: 'luxury', label: 'Luxus', icon: Gem },
 ];
 
 const usageOptions = [
-  { id: 'city', label: 'City Commute', icon: MapPin },
-  { id: 'long-trips', label: 'Long Trips', icon: MapPin },
-  { id: 'family', label: 'Family', icon: Users },
-  { id: 'business', label: 'Business', icon: Briefcase },
-  { id: 'performance', label: 'Performance', icon: Gauge },
-];
-
-const fuelOptions = [
-  { id: 'any', label: 'Any' },
-  { id: 'electric', label: 'Electric Only' },
-  { id: 'hybrid', label: 'Hybrid' },
-  { id: 'gas', label: 'Gas/Petrol' },
-];
-
-const maintenanceOptions = [
-  { id: 'low', label: 'Low Cost Priority' },
-  { id: 'balanced', label: 'Balanced' },
-  { id: 'performance', label: 'Performance First' },
+  { id: 'city', label: 'Stadtverkehr', icon: MapPin },
+  { id: 'long-trips', label: 'Langstrecken', icon: MapPin },
+  { id: 'family', label: 'Familie', icon: Users },
+  { id: 'business', label: 'Geschäftlich', icon: Briefcase },
+  { id: 'performance', label: 'Leistung', icon: Gauge },
 ];
 
 export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFormProps) {
+  const { t } = useTranslation();
   const [step, setStep] = useState(1);
   const [budget, setBudget] = useState<[number, number]>([30000, 150000]);
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [selectedUsage, setSelectedUsage] = useState<string[]>([]);
   const [fuelPreference, setFuelPreference] = useState('any');
   const [maintenancePriority, setMaintenancePriority] = useState('balanced');
+
+  const fuelOptions = [
+    { id: 'any', label: t('common.any') },
+    { id: 'electric', label: 'Nur Elektro' },
+    { id: 'hybrid', label: 'Hybrid' },
+    { id: 'gas', label: 'Benzin/Diesel' },
+  ];
+
+  const maintenanceOptions = [
+    { id: 'low', label: t('preferences.low_cost') },
+    { id: 'balanced', label: t('preferences.balanced') },
+    { id: 'performance', label: t('preferences.performance_first') },
+  ];
 
   const toggleType = (type: string) => {
     setSelectedTypes(prev => 
@@ -81,7 +83,6 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
   };
 
   const handleReady = () => {
-    console.log("Ready button clicked, calling onComplete."); // Added console log
     onComplete({
       budget,
       carType: selectedTypes,
@@ -92,9 +93,9 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
   };
 
   const formatPrice = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('de-DE', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'EUR',
       maximumFractionDigits: 0,
     }).format(value);
   };
@@ -113,7 +114,6 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
         transition={{ duration: 0.6 }}
         className="w-full max-w-3xl"
       >
-        {/* Progress indicator */}
         <div className="mb-12">
           <div className="flex items-center justify-between mb-4">
             {[1, 2, 3].map((s) => (
@@ -137,11 +137,10 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
             ))}
           </div>
           <p className="text-center text-muted-foreground">
-            Step {step} of 3: {step === 1 ? 'Budget & Type' : step === 2 ? 'Usage & Fuel' : 'Preferences'}
+            {t('preferences.step')} {step} {t('preferences.of')} 3: {step === 1 ? t('preferences.step1_title') : step === 2 ? t('preferences.step2_title') : t('preferences.step3_title')}
           </p>
         </div>
 
-        {/* Form content */}
         <div className="glass-card rounded-3xl p-8 md:p-12">
           <AnimatePresence mode="wait">
             {step === 1 && (
@@ -153,27 +152,18 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                 exit="exit"
                 transition={{ duration: 0.3 }}
               >
-                <h2 className="font-display text-3xl font-bold mb-2">
-                  What's your budget?
-                </h2>
-                <p className="text-muted-foreground mb-10">
-                  Set your price range to find the perfect match
-                </p>
+                <h2 className="font-display text-3xl font-bold mb-2">{t('preferences.budget_title')}</h2>
+                <p className="text-muted-foreground mb-10">{t('preferences.budget_desc')}</p>
 
-                {/* Budget slider */}
                 <div className="mb-12">
                   <div className="flex justify-between mb-6">
                     <div>
                       <span className="text-sm text-muted-foreground">Min</span>
-                      <div className="font-display text-2xl font-bold gradient-text">
-                        {formatPrice(budget[0])}
-                      </div>
+                      <div className="font-display text-2xl font-bold gradient-text">{formatPrice(budget[0])}</div>
                     </div>
                     <div className="text-right">
                       <span className="text-sm text-muted-foreground">Max</span>
-                      <div className="font-display text-2xl font-bold gradient-text">
-                        {formatPrice(budget[1])}
-                      </div>
+                      <div className="font-display text-2xl font-bold gradient-text">{formatPrice(budget[1])}</div>
                     </div>
                   </div>
                   <Slider
@@ -186,10 +176,7 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                   />
                 </div>
 
-                {/* Car types */}
-                <h3 className="font-display text-xl font-semibold mb-4">
-                  What type of car interests you?
-                </h3>
+                <h3 className="font-display text-xl font-semibold mb-4">{t('preferences.type_title')}</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {carTypes.map((type) => {
                     const Icon = type.icon;
@@ -199,17 +186,13 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                         key={type.id}
                         onClick={() => toggleType(type.id)}
                         className={`p-4 rounded-xl border-2 transition-all duration-300 ${
-                          isSelected 
-                            ? 'border-primary bg-primary/10' 
-                            : 'border-border hover:border-primary/50'
+                          isSelected ? 'border-primary bg-primary/10' : 'border-border hover:border-primary/50'
                         }`}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
                         <Icon className={`w-6 h-6 mx-auto mb-2 ${isSelected ? 'text-primary' : 'text-muted-foreground'}`} />
-                        <span className={`text-sm font-medium ${isSelected ? 'text-primary' : ''}`}>
-                          {type.label}
-                        </span>
+                        <span className={`text-sm font-medium ${isSelected ? 'text-primary' : ''}`}>{type.label}</span>
                       </motion.button>
                     );
                   })}
@@ -226,14 +209,9 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                 exit="exit"
                 transition={{ duration: 0.3 }}
               >
-                <h2 className="font-display text-3xl font-bold mb-2">
-                  How will you use it?
-                </h2>
-                <p className="text-muted-foreground mb-10">
-                  Select all that apply to get better recommendations
-                </p>
+                <h2 className="font-display text-3xl font-bold mb-2">{t('preferences.usage_title')}</h2>
+                <p className="text-muted-foreground mb-10">{t('preferences.usage_desc')}</p>
 
-                {/* Usage options */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
                   {usageOptions.map((option) => {
                     const Icon = option.icon;
@@ -243,26 +221,21 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                         key={option.id}
                         onClick={() => toggleUsage(option.id)}
                         className={`p-4 rounded-xl border-2 transition-all duration-300 ${
-                          isSelected 
-                            ? 'border-primary bg-primary/10' 
-                            : 'border-border hover:border-primary/50'
+                          isSelected ? 'border-primary bg-primary/10' : 'border-border hover:border-primary/50'
                         }`}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
                         <Icon className={`w-6 h-6 mx-auto mb-2 ${isSelected ? 'text-primary' : 'text-muted-foreground'}`} />
-                        <span className={`text-sm font-medium ${isSelected ? 'text-primary' : ''}`}>
-                          {option.label}
-                        </span>
+                        <span className={`text-sm font-medium ${isSelected ? 'text-primary' : ''}`}>{option.label}</span>
                       </motion.button>
                     );
                   })}
                 </div>
 
-                {/* Fuel preference */}
                 <h3 className="font-display text-xl font-semibold mb-4 flex items-center gap-2">
                   <Fuel className="w-5 h-5" />
-                  Fuel Preference
+                  {t('preferences.fuel_title')}
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {fuelOptions.map((option) => (
@@ -270,9 +243,7 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                       key={option.id}
                       onClick={() => setFuelPreference(option.id)}
                       className={`p-3 rounded-xl border-2 transition-all duration-300 text-sm font-medium ${
-                        fuelPreference === option.id 
-                          ? 'border-primary bg-primary/10 text-primary' 
-                          : 'border-border hover:border-primary/50'
+                        fuelPreference === option.id ? 'border-primary bg-primary/10 text-primary' : 'border-border hover:border-primary/50'
                       }`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -293,17 +264,12 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                 exit="exit"
                 transition={{ duration: 0.3 }}
               >
-                <h2 className="font-display text-3xl font-bold mb-2">
-                  Final preferences
-                </h2>
-                <p className="text-muted-foreground mb-10">
-                  Help us fine-tune your recommendations
-                </p>
+                <h2 className="font-display text-3xl font-bold mb-2">{t('preferences.final_title')}</h2>
+                <p className="text-muted-foreground mb-10">{t('preferences.final_desc')}</p>
 
-                {/* Maintenance priority */}
                 <h3 className="font-display text-xl font-semibold mb-4 flex items-center gap-2">
                   <Wrench className="w-5 h-5" />
-                  Maintenance Priority
+                  {t('preferences.maintenance_title')}
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
                   {maintenanceOptions.map((option) => (
@@ -311,25 +277,20 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                       key={option.id}
                       onClick={() => setMaintenancePriority(option.id)}
                       className={`p-4 rounded-xl border-2 transition-all duration-300 ${
-                        maintenancePriority === option.id 
-                          ? 'border-primary bg-primary/10' 
-                          : 'border-border hover:border-primary/50'
+                        maintenancePriority === option.id ? 'border-primary bg-primary/10' : 'border-border hover:border-primary/50'
                       }`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <span className={`font-medium ${maintenancePriority === option.id ? 'text-primary' : ''}`}>
-                        {option.label}
-                      </span>
+                      <span className={`font-medium ${maintenancePriority === option.id ? 'text-primary' : ''}`}>{option.label}</span>
                     </motion.button>
                   ))}
                 </div>
 
-                {/* Summary */}
                 <div className="p-6 rounded-2xl bg-secondary/50 mb-8">
                   <h4 className="font-semibold mb-4 flex items-center gap-2">
                     <Sparkles className="w-5 h-5 text-primary" />
-                    Your Preferences Summary
+                    {t('preferences.summary_title')}
                   </h4>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
@@ -337,19 +298,15 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                       <span className="ml-2 font-medium">{formatPrice(budget[0])} - {formatPrice(budget[1])}</span>
                     </div>
                     <div>
-                      <span className="text-muted-foreground">Types:</span>
-                      <span className="ml-2 font-medium">
-                        {selectedTypes.length ? selectedTypes.join(', ') : 'Any'}
-                      </span>
+                      <span className="text-muted-foreground">Typen:</span>
+                      <span className="ml-2 font-medium">{selectedTypes.length ? selectedTypes.join(', ') : t('common.any')}</span>
                     </div>
                     <div>
-                      <span className="text-muted-foreground">Usage:</span>
-                      <span className="ml-2 font-medium">
-                        {selectedUsage.length ? selectedUsage.join(', ') : 'Any'}
-                      </span>
+                      <span className="text-muted-foreground">Nutzung:</span>
+                      <span className="ml-2 font-medium">{selectedUsage.length ? selectedUsage.join(', ') : t('common.any')}</span>
                     </div>
                     <div>
-                      <span className="text-muted-foreground">Fuel:</span>
+                      <span className="text-muted-foreground">Kraftstoff:</span>
                       <span className="ml-2 font-medium capitalize">{fuelPreference}</span>
                     </div>
                   </div>
@@ -358,33 +315,20 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
             )}
           </AnimatePresence>
 
-          {/* Navigation buttons */}
           <div className="flex justify-between mt-8">
-            <Button
-              variant="ghost"
-              onClick={() => step === 1 ? onBack() : setStep(step - 1)}
-              className="group"
-            >
+            <Button variant="ghost" onClick={() => step === 1 ? onBack() : setStep(step - 1)} className="group">
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-              Back
+              {t('common.back')}
             </Button>
             
             {step < 3 ? (
-              <Button
-                variant="default"
-                onClick={() => setStep(step + 1)}
-                className="group"
-              >
-                Continue
+              <Button variant="default" onClick={() => setStep(step + 1)} className="group">
+                {t('common.continue')}
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             ) : (
-              <Button
-                variant="hero"
-                onClick={handleReady} // Changed to handleReady
-                className="group"
-              >
-                Ready
+              <Button variant="hero" onClick={handleReady} className="group">
+                {t('common.ready')}
                 <Sparkles className="w-4 h-4 ml-2" />
               </Button>
             )}

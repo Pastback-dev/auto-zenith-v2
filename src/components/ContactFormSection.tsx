@@ -18,18 +18,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { ArrowLeft, Mail, Sparkles } from "lucide-react";
 import { Car, UserPreferences } from "@/lib/carData";
+import { useTranslation } from "react-i18next";
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "Der Name muss mindestens 2 Zeichen lang sein.",
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
   }),
   message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
+    message: "Die Nachricht muss mindestens 10 Zeichen lang sein.",
   }).max(500, {
-    message: "Message cannot exceed 500 characters.",
+    message: "Die Nachricht darf 500 Zeichen nicht überschreiten.",
   }),
 });
 
@@ -40,6 +41,7 @@ interface ContactFormSectionProps {
 }
 
 export function ContactFormSection({ initialPreferences, selectedCars, onBack }: ContactFormSectionProps) {
+  const { t } = useTranslation();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -50,48 +52,35 @@ export function ContactFormSection({ initialPreferences, selectedCars, onBack }:
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log("Contact form submitted:", values);
-    console.log("Initial Preferences:", initialPreferences);
-    console.log("Selected Cars:", selectedCars);
-
-    toast.success("Your message has been sent!", {
-      description: "We'll get back to you shortly.",
+    toast.success(t('contact.success'), {
+      description: t('contact.success_desc'),
     });
     form.reset();
   }
 
   const formatPrice = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('de-DE', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'EUR',
       maximumFractionDigits: 0,
     }).format(value);
   };
 
   return (
     <section className="min-h-screen flex items-center justify-center py-20 px-6 pt-16">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="w-full max-w-3xl"
-      >
+      <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="w-full max-w-3xl">
         <div className="glass-card rounded-3xl p-8 md:p-12">
           <h2 className="font-display text-3xl font-bold mb-2 text-center">
-            <span className="gradient-text">Contact Us</span>
+            <span className="gradient-text">{t('contact.title')}</span>
           </h2>
-          <p className="text-muted-foreground mb-10 text-center">
-            Have questions or need more details? Send us a message!
-          </p>
+          <p className="text-muted-foreground mb-10 text-center">{t('contact.subtitle')}</p>
 
-          {/* Display Preferences if available */}
-          {(initialPreferences || selectedCars && selectedCars.length > 0) && (
+          {(initialPreferences || (selectedCars && selectedCars.length > 0)) && (
             <div className="p-6 rounded-2xl bg-secondary/50 mb-8">
               <h4 className="font-semibold mb-4 flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-primary" />
-                Your Inquiry Details
+                {t('contact.details_title')}
               </h4>
               {initialPreferences && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-4">
@@ -100,26 +89,14 @@ export function ContactFormSection({ initialPreferences, selectedCars, onBack }:
                     <span className="ml-2 font-medium">{formatPrice(initialPreferences.budget[0])} - {formatPrice(initialPreferences.budget[1])}</span>
                   </div>
                   <div>
-                    <span className="text-muted-foreground">Types:</span>
-                    <span className="ml-2 font-medium">
-                      {initialPreferences.carType.length ? initialPreferences.carType.join(', ') : 'Any'}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground">Usage:</span>
-                    <span className="ml-2 font-medium">
-                      {initialPreferences.usage.length ? initialPreferences.usage.join(', ') : 'Any'}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground">Fuel:</span>
-                    <span className="ml-2 font-medium capitalize">{initialPreferences.fuelPreference}</span>
+                    <span className="text-muted-foreground">Typen:</span>
+                    <span className="ml-2 font-medium">{initialPreferences.carType.length ? initialPreferences.carType.join(', ') : t('common.any')}</span>
                   </div>
                 </div>
               )}
               {selectedCars && selectedCars.length > 0 && (
                 <div className="mt-4">
-                  <span className="text-muted-foreground">Selected Cars:</span>
+                  <span className="text-muted-foreground">Ausgewählte Autos:</span>
                   <ul className="list-disc list-inside ml-2 text-sm font-medium">
                     {selectedCars.map(car => (
                       <li key={car.id}>{car.brand} {car.name} ({formatPrice(car.price)})</li>
@@ -132,60 +109,34 @@ export function ContactFormSection({ initialPreferences, selectedCars, onBack }:
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your Name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="your@email.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Tell us more about your inquiry..."
-                        className="min-h-[120px]"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <FormField control={form.control} name="name" render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t('contact.name_label')}</FormLabel>
+                  <FormControl><Input placeholder={t('contact.placeholder_name')} {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )} />
+              <FormField control={form.control} name="email" render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t('contact.email_label')}</FormLabel>
+                  <FormControl><Input type="email" placeholder={t('contact.placeholder_email')} {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )} />
+              <FormField control={form.control} name="message" render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t('contact.message_label')}</FormLabel>
+                  <FormControl><Textarea placeholder={t('contact.placeholder_message')} className="min-h-[120px]" {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )} />
               <div className="flex justify-between mt-8">
-                <Button
-                  variant="ghost"
-                  onClick={onBack}
-                  className="group"
-                >
+                <Button variant="ghost" onClick={onBack} className="group">
                   <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-                  Back
+                  {t('common.back')}
                 </Button>
                 <Button type="submit" variant="hero" className="group">
-                  Send Message
+                  {t('common.send')}
                   <Mail className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>

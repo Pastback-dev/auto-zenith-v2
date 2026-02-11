@@ -7,7 +7,11 @@
     "ourSelection": "Unsere Auswahl",
     "about": "Über uns",
     "back": "Zurück",
-    "send": "Nachricht Senden"
+    "send": "Nachricht Senden",
+    "reset": "Neu starten",
+    "continue": "Weiter",
+    "ready": "Fertig",
+    "any": "Beliebig"
   },
   "hero": {
     "badge": "KI-gestützte Empfehlungen",
@@ -16,5 +20,95 @@
     "stat1": "Analysierte Autos",
     "stat2": "Zufriedenheit",
     "stat3": "Durchschnittszeit"
+  },
+  "features": {
+    "title": "Warum AutoGenius wählen?",
+    "subtitle": "Wir gehen über einfache Filter hinaus, um Ihnen personalisierte, datengesteuerte Autoempfehlungen zu geben.",
+    "f1_title": "KI-gestützte Abstimmung",
+    "f1_desc": "Unsere fortschrittliche KI analysiert Ihre Bedürfnisse, um Autos zu finden, die wirklich zu Ihrem Lebensstil passen.",
+    "f2_title": "Kosteneffiziente Auswahl",
+    "f2_desc": "Erhalten Sie Empfehlungen, die nicht nur den Preis, sondern auch die langfristigen Betriebskosten berücksichtigen.",
+    "f3_title": "Wartungseinblicke",
+    "f3_desc": "Verstehen Sie das Wartungsprofil jedes Fahrzeugs, bevor Sie eine Entscheidung treffen.",
+    "f4_title": "Sicherheit & Zuverlässigkeit",
+    "f4_desc": "Wir priorisieren Fahrzeuge mit hohen Sicherheitsbewertungen und bewährter Zuverlässigkeit.",
+    "f5_title": "Umweltfreundliche Optionen",
+    "f5_desc": "Entdecken Sie eine breite Palette von Elektro- und Hybridfahrzeugen, die auf Ihre grünen Vorlieben zugeschnitten sind.",
+    "f6_title": "Familien- & Lifestyle-Passform",
+    "f6_desc": "Ob für den täglichen Arbeitsweg oder Familienabenteuer, finden Sie ein Auto, das zu jedem Aspekt Ihres Lebens passt."
+  },
+  "testimonials": {
+    "title": "Was unsere Nutzer sagen",
+    "subtitle": "Verlassen Sie sich nicht nur auf unser Wort – hören Sie von zufriedenen Kunden, die ihr perfektes Auto gefunden haben.",
+    "t1_quote": "AutoGenius hat die Suche nach meinem Traumauto unglaublich einfach gemacht. Die Empfehlungen waren genau richtig!",
+    "t2_quote": "Ich war von der Auswahl überwältigt, aber AutoGenius hat sie perfekt eingegrenzt. Die KI-Einblicke waren unbezahlbar.",
+    "t3_quote": "Die Vergleichsfunktion ist ein Game-Changer! Ich konnte die Vor- und Nachteile direkt nebeneinander sehen."
+  },
+  "about": {
+    "title": "Über AutoGenius",
+    "subtitle": "Revolutionierung des Autokaufs mit intelligenten, personalisierten Empfehlungen.",
+    "p1": "Wir bei AutoGenius glauben, dass die Suche nach Ihrem nächsten Auto eine aufregende und mühelose Reise sein sollte, keine entmutigende Aufgabe. Wir nutzen modernste künstliche Intelligenz, um Ihre einzigartigen Vorlieben, Ihren Lebensstil und Ihr Budget zu verstehen.",
+    "p2": "Unsere Plattform geht über einfache Filter hinaus und bietet tiefe Einblicke in Leistung, Betriebskosten und Nutzerbewertungen.",
+    "mission_title": "Unsere Mission",
+    "mission_desc": "Den Entdeckungsprozess für Autos zu vereinfachen und ihn für jeden angenehm und effizient zu gestalten.",
+    "stat1_label": "Geholfene Nutzer",
+    "stat2_label": "Genauigkeitsrate",
+    "stat3_label": "Abgedeckte Marken"
+  },
+  "cta": {
+    "title": "Bereit, Ihr Traumauto zu finden?",
+    "subtitle": "Hören Sie auf zu raten und fangen Sie an zu fahren. Lassen Sie sich heute von AutoGenius zu Ihrem perfekten Fahrzeug führen.",
+    "button": "Personalisierte Empfehlungen erhalten"
+  },
+  "preferences": {
+    "step": "Schritt",
+    "of": "von",
+    "step1_title": "Budget & Typ",
+    "step2_title": "Nutzung & Kraftstoff",
+    "step3_title": "Präferenzen",
+    "budget_title": "Wie hoch ist Ihr Budget?",
+    "budget_desc": "Legen Sie Ihre Preisspanne fest, um den perfekten Treffer zu finden",
+    "type_title": "Welcher Autotyp interessiert Sie?",
+    "usage_title": "Wie werden Sie es nutzen?",
+    "usage_desc": "Wählen Sie alles aus, was zutrifft, um bessere Empfehlungen zu erhalten",
+    "fuel_title": "Kraftstoff-Präferenz",
+    "final_title": "Letzte Präferenzen",
+    "final_desc": "Helfen Sie uns, Ihre Empfehlungen fein abzustimmen",
+    "maintenance_title": "Wartungspriorität",
+    "summary_title": "Zusammenfassung Ihrer Präferenzen",
+    "low_cost": "Niedrige Kosten Priorität",
+    "balanced": "Ausgewogen",
+    "performance_first": "Leistung zuerst"
+  },
+  "recommendations": {
+    "title": "Ihre perfekten Treffer",
+    "subtitle": "Basierend auf Ihren Präferenzen haben wir {{count}} außergewöhnliche Fahrzeuge gefunden.",
+    "ai_badge": "KI-gestützte Treffer",
+    "adjust": "Präferenzen anpassen",
+    "contact_selection": "Kontaktieren Sie uns bezüglich der Auswahl",
+    "selection_hint": "Klicken Sie auf Karten, um bis zu 3 Fahrzeuge zum Vergleich auszuwählen",
+    "selected_count": "({{count}}/3 ausgewählt)"
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "subtitle": "Haben Sie Fragen oder benötigen Sie weitere Details? Senden Sie uns eine Nachricht!",
+    "details_title": "Ihre Anfrage-Details",
+    "name_label": "Name",
+    "email_label": "E-Mail",
+    "message_label": "Nachricht",
+    "placeholder_name": "Ihr Name",
+    "placeholder_email": "ihre@email.de",
+    "placeholder_message": "Erzählen Sie uns mehr über Ihre Anfrage...",
+    "success": "Ihre Nachricht wurde gesendet!",
+    "success_desc": "Wir werden uns in Kürze bei Ihnen melden."
+  },
+  "footer": {
+    "desc": "Ihr intelligenter Partner für die Suche nach dem perfekten Fahrzeug, angetrieben durch fortschrittliche KI.",
+    "quick_links": "Schnellzugriff",
+    "legal": "Rechtliches",
+    "follow_us": "Folgen Sie uns",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen",
+    "cookies": "Cookie-Richtlinie"
   }
 }
