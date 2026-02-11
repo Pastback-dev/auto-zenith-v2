@@ -1,0 +1,20 @@
+{
+  "common": {
+    "getStarted": "Jetzt Starten",
+    "learnMore": "Mehr Erfahren",
+    "contact": "Kontakt",
+    "howItWorks": "Wie es funktioniert",
+    "ourSelection": "Unsere Auswahl",
+    "about": "Über uns",
+    "back": "Zurück",
+    "send": "Nachricht Senden"
+  },
+  "hero": {
+    "badge": "KI-gestützte Empfehlungen",
+    "title": "Finden Sie sofort Ihr perfektes Auto",
+    "subtitle": "Unsere intelligente Empfehlungsmaschine analysiert Ihre Vorlieben, um Sie mit dem idealen Fahrzeug auf dem heutigen Markt zusammenzubringen.",
+    "stat1": "Analysierte Autos",
+    "stat2": "Zufriedenheit",
+    "stat3": "Durchschnittszeit"
+  }
+}

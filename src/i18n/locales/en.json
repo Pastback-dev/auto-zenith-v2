@@ -1,0 +1,20 @@
+{
+  "common": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "contact": "Contact",
+    "howItWorks": "How it Works",
+    "ourSelection": "Our Selection",
+    "about": "About",
+    "back": "Back",
+    "send": "Send Message"
+  },
+  "hero": {
+    "badge": "AI-Powered Recommendations",
+    "title": "Find Your Perfect Car Instantly",
+    "subtitle": "Our intelligent recommendation engine analyzes your preferences to match you with the ideal vehicle from today's market.",
+    "stat1": "Cars Analyzed",
+    "stat2": "Satisfaction",
+    "stat3": "Average Time"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "common": {
+    "getStarted": "Commencer",
+    "learnMore": "En savoir plus",
+    "contact": "Contact",
+    "howItWorks": "Comment ça marche",
+    "ourSelection": "Notre Sélection",
+    "about": "À propos",
+    "back": "Retour",
+    "send": "Envoyer le message"
+  },
+  "hero": {
+    "badge": "Recommandations propulsées par l'IA",
+    "title": "Trouvez votre voiture idéale instantanément",
+    "subtitle": "Notre moteur de recommandation intelligent analyse vos préférences pour vous proposer le véhicule idéal sur le marché actuel.",
+    "stat1": "Voitures analysées",
+    "stat2": "Satisfaction",
+    "stat3": "Temps moyen"
+  }
+}
