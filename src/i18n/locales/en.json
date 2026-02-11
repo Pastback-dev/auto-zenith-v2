@@ -7,7 +7,11 @@
     "ourSelection": "Our Selection",
     "about": "About",
     "back": "Back",
-    "send": "Send Message"
+    "send": "Send Message",
+    "reset": "Reset",
+    "continue": "Continue",
+    "ready": "Ready",
+    "any": "Any"
   },
   "hero": {
     "badge": "AI-Powered Recommendations",
@@ -16,5 +20,95 @@
     "stat1": "Cars Analyzed",
     "stat2": "Satisfaction",
     "stat3": "Average Time"
+  },
+  "features": {
+    "title": "Why Choose AutoGenius?",
+    "subtitle": "We go beyond simple filters to provide you with personalized, data-driven car recommendations.",
+    "f1_title": "AI-Powered Matching",
+    "f1_desc": "Our advanced AI analyzes your needs to find cars that truly fit your lifestyle.",
+    "f2_title": "Cost-Efficient Selection",
+    "f2_desc": "Get recommendations that consider not just the price, but also long-term ownership costs.",
+    "f3_title": "Maintenance Insights",
+    "f3_desc": "Understand the maintenance profile of each vehicle before making a decision.",
+    "f4_title": "Safety & Reliability",
+    "f4_desc": "We prioritize vehicles with high safety ratings and proven reliability.",
+    "f5_title": "Eco-Friendly Options",
+    "f5_desc": "Explore a wide range of electric and hybrid vehicles tailored to your green preferences.",
+    "f6_title": "Family & Lifestyle Fit",
+    "f6_desc": "Whether for daily commutes or family adventures, find a car that fits every aspect of your life."
+  },
+  "testimonials": {
+    "title": "What Our Users Say",
+    "subtitle": "Don't just take our word for it – hear from satisfied customers who found their perfect car.",
+    "t1_quote": "AutoGenius made finding my dream car incredibly easy. The recommendations were spot on!",
+    "t2_quote": "I was overwhelmed by the choices, but AutoGenius narrowed it down perfectly. The AI insights were invaluable.",
+    "t3_quote": "The comparison feature is a game-changer! I could see the pros and cons right next to each other."
+  },
+  "about": {
+    "title": "About AutoGenius",
+    "subtitle": "Revolutionizing car buying with intelligent, personalized recommendations.",
+    "p1": "At AutoGenius, we believe finding your next car should be an exciting and effortless journey, not a daunting task. We leverage cutting-edge artificial intelligence to understand your unique preferences, lifestyle, and budget.",
+    "p2": "Our platform goes beyond simple filters, providing deep insights into performance, ownership costs, and user ratings.",
+    "mission_title": "Our Mission",
+    "mission_desc": "To simplify the car discovery process and make it enjoyable and efficient for everyone.",
+    "stat1_label": "Users Helped",
+    "stat2_label": "Accuracy Rate",
+    "stat3_label": "Brands Covered"
+  },
+  "cta": {
+    "title": "Ready to Find Your Dream Car?",
+    "subtitle": "Stop guessing and start driving. Let AutoGenius guide you to your perfect vehicle today.",
+    "button": "Get Personalized Recommendations"
+  },
+  "preferences": {
+    "step": "Step",
+    "of": "of",
+    "step1_title": "Budget & Type",
+    "step2_title": "Usage & Fuel",
+    "step3_title": "Preferences",
+    "budget_title": "What's your budget?",
+    "budget_desc": "Set your price range to find the perfect match",
+    "type_title": "What type of car are you interested in?",
+    "usage_title": "How will you use it?",
+    "usage_desc": "Select all that apply for better recommendations",
+    "fuel_title": "Fuel Preference",
+    "final_title": "Final Preferences",
+    "final_desc": "Help us fine-tune your recommendations",
+    "maintenance_title": "Maintenance Priority",
+    "summary_title": "Summary of Your Preferences",
+    "low_cost": "Low Cost Priority",
+    "balanced": "Balanced",
+    "performance_first": "Performance First"
+  },
+  "recommendations": {
+    "title": "Your Perfect Matches",
+    "subtitle": "Based on your preferences, we've found {{count}} exceptional vehicles.",
+    "ai_badge": "AI-Powered Matches",
+    "adjust": "Adjust Preferences",
+    "contact_selection": "Contact us about selection",
+    "selection_hint": "Click cards to select up to 3 vehicles for comparison",
+    "selected_count": "({{count}}/3 selected)"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions or need more details? Send us a message!",
+    "details_title": "Your Inquiry Details",
+    "name_label": "Name",
+    "email_label": "Email",
+    "message_label": "Message",
+    "placeholder_name": "Your Name",
+    "placeholder_email": "your@email.com",
+    "placeholder_message": "Tell us more about your inquiry...",
+    "success": "Your message has been sent!",
+    "success_desc": "We'll get back to you shortly."
+  },
+  "footer": {
+    "desc": "Your intelligent partner for finding the perfect vehicle, powered by advanced AI.",
+    "quick_links": "Quick Links",
+    "legal": "Legal",
+    "follow_us": "Follow Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
   }
 }
