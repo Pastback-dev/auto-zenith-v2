@@ -13,6 +13,7 @@ import { ContactFormSection } from "@/components/ContactFormSection";
 import { Footer } from "@/components/Footer";
 import { Car, UserPreferences, getRecommendations } from "@/lib/carData";
 import { DollarSign, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type Step = 'hero' | 'preferences' | 'summary' | 'results' | 'contact';
 

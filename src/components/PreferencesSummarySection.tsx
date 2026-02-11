@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { UserPreferences } from "@/lib/carData";
-import { ArrowLeft, ArrowRight, Sparkles, Car, Zap, Leaf, Gauge, Gem, Users, Briefcase, MapPin, Fuel, Wrench } from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles, Car, Zap, Leaf, Gauge, Gem, Users, Briefcase, MapPin, Fuel, Wrench, DollarSign, Mail } from "lucide-react";
 
 interface PreferencesSummarySectionProps {
   preferences: UserPreferences;
@@ -27,11 +27,11 @@ const usageIcons: Record<string, React.ElementType> = {
   performance: Gauge,
 };
 
-export function PreferencesSummarySection({ 
-  preferences, 
-  onGetRecommendations, 
-  onProceedToContact, 
-  onBack 
+export function PreferencesSummarySection({
+  preferences,
+  onGetRecommendations,
+  onProceedToContact,
+  onBack
 }: PreferencesSummarySectionProps) {
 
   const formatPrice = (value: number) => {
@@ -42,10 +42,10 @@ export function PreferencesSummarySection({
     }).format(value);
   };
 
-  const renderPreferenceItem = (label: string, value: string | string[], icon: React.ElementType) => (
+  const renderPreferenceItem = (label: string, value: string | string[], Icon: React.ElementType) => (
     <div className="flex items-center gap-3 p-4 bg-secondary/50 rounded-xl">
       <div className="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary">
-        {icon && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 200 }}><icon className="w-4 h-4" /></motion.div>}
+        {Icon && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 200 }}><Icon className="w-4 h-4" /></motion.div>}
       </div>
       <div>
         <p className="text-sm text-muted-foreground">{label}</p>
