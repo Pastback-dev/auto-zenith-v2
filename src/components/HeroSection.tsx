@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
-import heroCar from "@/assets/hero-car.jpg";
+import heroCar from "@/assets/volkswagen-hero.jpg";
 import { useTranslation } from "react-i18next";
 
 interface HeroSectionProps {
@@ -118,7 +118,7 @@ export function HeroSection({ onGetStarted }: HeroSectionProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10" />
               <img
                 src={heroCar}
-                alt="Premium car"
+                alt="Volkswagen SUV"
                 className="w-full h-auto rounded-3xl shadow-2xl"
               />
               <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-primary/30 blur-3xl rounded-full" />
