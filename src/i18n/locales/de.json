@@ -78,7 +78,27 @@
     "summary_title": "Zusammenfassung Ihrer Präferenzen",
     "low_cost": "Niedrige Kosten Priorität",
     "balanced": "Ausgewogen",
-    "performance_first": "Leistung zuerst"
+    "performance_first": "Leistung zuerst",
+    "types": {
+      "suv": "SUV",
+      "sedan": "Limousine",
+      "electric": "Elektro",
+      "hybrid": "Hybrid",
+      "sport": "Sportwagen",
+      "luxury": "Luxus"
+    },
+    "usage": {
+      "city": "Stadtverkehr",
+      "long_trips": "Langstrecken",
+      "family": "Familie",
+      "business": "Geschäftlich",
+      "performance": "Leistung"
+    },
+    "fuel": {
+      "electric": "Nur Elektro",
+      "hybrid": "Hybrid",
+      "gas": "Benzin/Diesel"
+    }
   },
   "recommendations": {
     "title": "Ihre perfekten Treffer",

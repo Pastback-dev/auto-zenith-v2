@@ -28,20 +28,20 @@ interface PreferencesFormProps {
 }
 
 const carTypes = [
-  { id: 'suv', label: 'SUV', icon: Car },
-  { id: 'sedan', label: 'Limousine', icon: Car },
-  { id: 'electric', label: 'Elektro', icon: Zap },
-  { id: 'hybrid', label: 'Hybrid', icon: Leaf },
-  { id: 'sport', label: 'Sportwagen', icon: Gauge },
-  { id: 'luxury', label: 'Luxus', icon: Gem },
+  { id: 'suv', icon: Car },
+  { id: 'sedan', icon: Car },
+  { id: 'electric', icon: Zap },
+  { id: 'hybrid', icon: Leaf },
+  { id: 'sport', icon: Gauge },
+  { id: 'luxury', icon: Gem },
 ];
 
 const usageOptions = [
-  { id: 'city', label: 'Stadtverkehr', icon: MapPin },
-  { id: 'long-trips', label: 'Langstrecken', icon: MapPin },
-  { id: 'family', label: 'Familie', icon: Users },
-  { id: 'business', label: 'Geschäftlich', icon: Briefcase },
-  { id: 'performance', label: 'Leistung', icon: Gauge },
+  { id: 'city', icon: MapPin },
+  { id: 'long-trips', icon: MapPin },
+  { id: 'family', icon: Users },
+  { id: 'business', icon: Briefcase },
+  { id: 'performance', icon: Gauge },
 ];
 
 export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFormProps) {
@@ -55,9 +55,9 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
 
   const fuelOptions = [
     { id: 'any', label: t('common.any') },
-    { id: 'electric', label: 'Nur Elektro' },
-    { id: 'hybrid', label: 'Hybrid' },
-    { id: 'gas', label: 'Benzin/Diesel' },
+    { id: 'electric', label: t('preferences.fuel.electric') },
+    { id: 'hybrid', label: t('preferences.fuel.hybrid') },
+    { id: 'gas', label: t('preferences.fuel.gas') },
   ];
 
   const maintenanceOptions = [
@@ -181,6 +181,7 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                   {carTypes.map((type) => {
                     const Icon = type.icon;
                     const isSelected = selectedTypes.includes(type.id);
+                    const label = t(`preferences.types.${type.id}`);
                     return (
                       <motion.button
                         key={type.id}
@@ -192,7 +193,7 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                         whileTap={{ scale: 0.98 }}
                       >
                         <Icon className={`w-6 h-6 mx-auto mb-2 ${isSelected ? 'text-primary' : 'text-muted-foreground'}`} />
-                        <span className={`text-sm font-medium ${isSelected ? 'text-primary' : ''}`}>{type.label}</span>
+                        <span className={`text-sm font-medium ${isSelected ? 'text-primary' : ''}`}>{label}</span>
                       </motion.button>
                     );
                   })}
@@ -216,6 +217,7 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                   {usageOptions.map((option) => {
                     const Icon = option.icon;
                     const isSelected = selectedUsage.includes(option.id);
+                    const label = t(`preferences.usage.${option.id.replace('-', '_')}`);
                     return (
                       <motion.button
                         key={option.id}
@@ -227,7 +229,7 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                         whileTap={{ scale: 0.98 }}
                       >
                         <Icon className={`w-6 h-6 mx-auto mb-2 ${isSelected ? 'text-primary' : 'text-muted-foreground'}`} />
-                        <span className={`text-sm font-medium ${isSelected ? 'text-primary' : ''}`}>{option.label}</span>
+                        <span className={`text-sm font-medium ${isSelected ? 'text-primary' : ''}`}>{label}</span>
                       </motion.button>
                     );
                   })}
@@ -299,15 +301,15 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                     </div>
                     <div>
                       <span className="text-muted-foreground">Typen:</span>
-                      <span className="ml-2 font-medium">{selectedTypes.length ? selectedTypes.join(', ') : t('common.any')}</span>
+                      <span className="ml-2 font-medium">{selectedTypes.length ? selectedTypes.map(id => t(`preferences.types.${id}`)).join(', ') : t('common.any')}</span>
                     </div>
                     <div>
                       <span className="text-muted-foreground">Nutzung:</span>
-                      <span className="ml-2 font-medium">{selectedUsage.length ? selectedUsage.join(', ') : t('common.any')}</span>
+                      <span className="ml-2 font-medium">{selectedUsage.length ? selectedUsage.map(id => t(`preferences.usage.${id.replace('-', '_')}`)).join(', ') : t('common.any')}</span>
                     </div>
                     <div>
                       <span className="text-muted-foreground">Kraftstoff:</span>
-                      <span className="ml-2 font-medium capitalize">{fuelPreference}</span>
+                      <span className="ml-2 font-medium capitalize">{fuelPreference === 'any' ? t('common.any') : t(`preferences.fuel.${fuelPreference}`)}</span>
                     </div>
                   </div>
                 </div>

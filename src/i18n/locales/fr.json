@@ -78,7 +78,27 @@
     "summary_title": "Résumé de vos choix",
     "low_cost": "Coût réduit",
     "balanced": "Équilibré",
-    "performance_first": "Performance d'abord"
+    "performance_first": "Performance d'abord",
+    "types": {
+      "suv": "SUV",
+      "sedan": "Berline",
+      "electric": "Électrique",
+      "hybrid": "Hybride",
+      "sport": "Sport",
+      "luxury": "Luxe"
+    },
+    "usage": {
+      "city": "Conduite urbaine",
+      "long_trips": "Longs trajets",
+      "family": "Famille",
+      "business": "Affaires",
+      "performance": "Performance"
+    },
+    "fuel": {
+      "electric": "Électrique uniquement",
+      "hybrid": "Hybride",
+      "gas": "Essence/Diesel"
+    }
   },
   "recommendations": {
     "title": "Vos correspondances",

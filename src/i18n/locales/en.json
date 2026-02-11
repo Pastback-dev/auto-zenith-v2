@@ -78,7 +78,27 @@
     "summary_title": "Summary of Your Preferences",
     "low_cost": "Low Cost Priority",
     "balanced": "Balanced",
-    "performance_first": "Performance First"
+    "performance_first": "Performance First",
+    "types": {
+      "suv": "SUV",
+      "sedan": "Sedan",
+      "electric": "Electric",
+      "hybrid": "Hybrid",
+      "sport": "Sport",
+      "luxury": "Luxury"
+    },
+    "usage": {
+      "city": "City Driving",
+      "long_trips": "Long Trips",
+      "family": "Family",
+      "business": "Business",
+      "performance": "Performance"
+    },
+    "fuel": {
+      "electric": "Electric Only",
+      "hybrid": "Hybrid",
+      "gas": "Gas/Diesel"
+    }
   },
   "recommendations": {
     "title": "Your Perfect Matches",
