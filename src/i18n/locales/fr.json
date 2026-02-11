@@ -3,18 +3,112 @@
     "getStarted": "Commencer",
     "learnMore": "En savoir plus",
     "contact": "Contact",
-    "howItWorks": "Comment ça marche",
+    "howItWorks": "Fonctionnement",
     "ourSelection": "Notre Sélection",
     "about": "À propos",
     "back": "Retour",
-    "send": "Envoyer le message"
+    "send": "Envoyer",
+    "reset": "Réinitialiser",
+    "continue": "Continuer",
+    "ready": "Prêt",
+    "any": "Tout"
   },
   "hero": {
-    "badge": "Recommandations propulsées par l'IA",
-    "title": "Trouvez votre voiture idéale instantanément",
-    "subtitle": "Notre moteur de recommandation intelligent analyse vos préférences pour vous proposer le véhicule idéal sur le marché actuel.",
+    "badge": "Recommandations par IA",
+    "title": "Trouvez votre voiture idéale",
+    "subtitle": "Notre moteur intelligent analyse vos préférences pour vous proposer le véhicule idéal sur le marché actuel.",
     "stat1": "Voitures analysées",
     "stat2": "Satisfaction",
     "stat3": "Temps moyen"
+  },
+  "features": {
+    "title": "Pourquoi AutoGenius ?",
+    "subtitle": "Nous allons au-delà des filtres simples pour vous offrir des recommandations personnalisées basées sur les données.",
+    "f1_title": "Matching par IA",
+    "f1_desc": "Notre IA analyse vos besoins pour trouver des voitures qui correspondent vraiment à votre style de vie.",
+    "f2_title": "Sélection rentable",
+    "f2_desc": "Des recommandations qui tiennent compte du prix et des coûts d'entretien à long terme.",
+    "f3_title": "Aperçu de l'entretien",
+    "f3_desc": "Comprenez le profil d'entretien de chaque véhicule avant de prendre une décision.",
+    "f4_title": "Sécurité & Fiabilité",
+    "f4_desc": "Nous privilégions les véhicules avec des cotes de sécurité élevées et une fiabilité prouvée.",
+    "f5_title": "Options Éco-responsables",
+    "f5_desc": "Explorez une large gamme de véhicules électriques et hybrides adaptés à vos préférences.",
+    "f6_title": "Adapté à votre vie",
+    "f6_desc": "Que ce soit pour le travail ou l'aventure, trouvez la voiture qui s'adapte à chaque aspect de votre vie."
+  },
+  "testimonials": {
+    "title": "Avis de nos utilisateurs",
+    "subtitle": "Découvrez les témoignages de clients satisfaits qui ont trouvé leur voiture idéale.",
+    "t1_quote": "AutoGenius a rendu la recherche de ma voiture de rêve incroyablement facile !",
+    "t2_quote": "J'étais submergé par les choix, mais l'IA a parfaitement ciblé mes besoins.",
+    "t3_quote": "La fonction de comparaison est géniale ! J'ai pu voir les avantages et inconvénients côte à côte."
+  },
+  "about": {
+    "title": "À propos d'AutoGenius",
+    "subtitle": "Révolutionner l'achat automobile avec des recommandations intelligentes.",
+    "p1": "Chez AutoGenius, nous pensons que trouver votre prochaine voiture devrait être un voyage passionnant et sans effort.",
+    "p2": "Notre plateforme offre des informations approfondies sur les performances, les coûts et les avis utilisateurs.",
+    "mission_title": "Notre Mission",
+    "mission_desc": "Simplifier le processus de découverte automobile pour le rendre agréable et efficace pour tous.",
+    "stat1_label": "Utilisateurs aidés",
+    "stat2_label": "Taux de précision",
+    "stat3_label": "Marques couvertes"
+  },
+  "cta": {
+    "title": "Prêt à trouver votre voiture ?",
+    "subtitle": "Arrêtez de deviner et commencez à conduire. Laissez AutoGenius vous guider dès aujourd'hui.",
+    "button": "Obtenir mes recommandations"
+  },
+  "preferences": {
+    "step": "Étape",
+    "of": "sur",
+    "step1_title": "Budget & Type",
+    "step2_title": "Usage & Carburant",
+    "step3_title": "Préférences",
+    "budget_title": "Quel est votre budget ?",
+    "budget_desc": "Définissez votre fourchette de prix",
+    "type_title": "Quel type de voiture vous intéresse ?",
+    "usage_title": "Comment l'utiliserez-vous ?",
+    "usage_desc": "Sélectionnez tout ce qui s'applique",
+    "fuel_title": "Préférence de carburant",
+    "final_title": "Dernières préférences",
+    "final_desc": "Aidez-nous à affiner vos résultats",
+    "maintenance_title": "Priorité d'entretien",
+    "summary_title": "Résumé de vos choix",
+    "low_cost": "Coût réduit",
+    "balanced": "Équilibré",
+    "performance_first": "Performance d'abord"
+  },
+  "recommendations": {
+    "title": "Vos correspondances",
+    "subtitle": "Selon vos choix, nous avons trouvé {{count}} véhicules exceptionnels.",
+    "ai_badge": "Sélection par IA",
+    "adjust": "Modifier les choix",
+    "contact_selection": "Nous contacter",
+    "selection_hint": "Cliquez pour comparer jusqu'à 3 véhicules",
+    "selected_count": "({{count}}/3 sélectionnés)"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Des questions ? Envoyez-nous un message !",
+    "details_title": "Détails de votre demande",
+    "name_label": "Nom",
+    "email_label": "Email",
+    "message_label": "Message",
+    "placeholder_name": "Votre nom",
+    "placeholder_email": "votre@email.com",
+    "placeholder_message": "Dites-nous en plus...",
+    "success": "Message envoyé !",
+    "success_desc": "Nous vous répondrons sous peu."
+  },
+  "footer": {
+    "desc": "Votre partenaire intelligent pour trouver le véhicule parfait, propulsé par l'IA.",
+    "quick_links": "Liens rapides",
+    "legal": "Légal",
+    "follow_us": "Suivez-nous",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "cookies": "Cookies"
   }
 }

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, Car } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 interface MobileNavProps {
   onContactClick: () => void;
@@ -12,6 +13,7 @@ interface MobileNavProps {
 
 export function MobileNav({ onContactClick }: MobileNavProps) {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
 
   const closeSheet = () => setOpen(false);
 
@@ -43,7 +45,7 @@ export function MobileNav({ onContactClick }: MobileNavProps) {
             activeClassName="bg-secondary text-foreground"
             onClick={closeSheet}
           >
-            How it Works
+            {t('common.howItWorks')}
           </NavLink>
           <NavLink
             to="/#our-selection"
@@ -53,7 +55,7 @@ export function MobileNav({ onContactClick }: MobileNavProps) {
             activeClassName="bg-secondary text-foreground"
             onClick={closeSheet}
           >
-            Our Selection
+            {t('common.ourSelection')}
           </NavLink>
           <NavLink
             to="/#about"
@@ -63,7 +65,7 @@ export function MobileNav({ onContactClick }: MobileNavProps) {
             activeClassName="bg-secondary text-foreground"
             onClick={closeSheet}
           >
-            About
+            {t('common.about')}
           </NavLink>
           <button
             onClick={() => {
@@ -74,7 +76,7 @@ export function MobileNav({ onContactClick }: MobileNavProps) {
               "block w-full text-left px-4 py-2 rounded-lg text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors",
             )}
           >
-            Contact
+            {t('common.contact')}
           </button>
         </nav>
       </SheetContent>
