@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export function TestimonialsSection() {
@@ -54,8 +53,7 @@ export function TestimonialsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="glass-card rounded-3xl p-8 flex flex-col items-center text-center premium-card"
             >
-              <Quote className="w-10 h-10 text-primary mb-6" />
-              <p className="text-lg text-foreground mb-6 italic">"{testimonial.quote}"</p>
+              <p className="text-lg text-foreground mb-6 italic">{testimonial.quote}</p>
               <div className="flex items-center gap-4">
                 <img src={testimonial.avatar} alt={testimonial.name} className="w-12 h-12 rounded-full" />
                 <div>
