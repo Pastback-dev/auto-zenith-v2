@@ -36,9 +36,9 @@ export function Footer({ onContactClick }: FooterProps) {
         <div>
           <h3 className="font-semibold text-foreground mb-4">{t('footer.legal')}</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link to="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.privacy')}</Link></li>
-            <li><Link to="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.terms')}</Link></li>
-            <li><Link to="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.cookies')}</Link></li>
+            <li><Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.privacy')}</Link></li>
+            <li><Link to="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.terms')}</Link></li>
+            <li><Link to="/cookie-policy" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.cookies')}</Link></li>
           </ul>
         </div>
 
