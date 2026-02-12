@@ -62,12 +62,12 @@ export function HeroSection({ onGetStarted }: HeroSectionProps) {
                 variant="hero"
                 size="xl"
                 onClick={onGetStarted}
-                className="group"
+                className="group whitespace-normal h-auto py-4"
               >
                 {t('common.getStarted')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="heroOutline" size="xl" asChild>
+              <Button variant="heroOutline" size="xl" asChild className="whitespace-normal h-auto py-4">
                 <Link to="/#about">
                   {t('common.learnMore')}
                 </Link>
