@@ -47,7 +47,7 @@ const usageOptions = [
 export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFormProps) {
   const { t } = useTranslation();
   const [step, setStep] = useState(1);
-  const [budget, setBudget] = useState<[number, number]>([30000, 150000]);
+  const [budget, setBudget] = useState<[number, number]>([500, 150000]);
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [selectedUsage, setSelectedUsage] = useState<string[]>([]);
   const [fuelPreference, setFuelPreference] = useState('any');
@@ -167,9 +167,9 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                   <Slider
                     value={budget}
                     onValueChange={(value) => setBudget(value as [number, number])}
-                    min={20000}
+                    min={500}
                     max={250000}
-                    step={5000}
+                    step={500}
                     className="mb-4"
                   />
                 </div>
