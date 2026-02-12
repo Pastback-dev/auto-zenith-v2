@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroCar from "@/assets/volkswagen-hero.jpg";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 interface HeroSectionProps {
   onGetStarted: () => void;
@@ -66,8 +67,10 @@ export function HeroSection({ onGetStarted }: HeroSectionProps) {
                 {t('common.getStarted')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="heroOutline" size="xl">
-                {t('common.learnMore')}
+              <Button variant="heroOutline" size="xl" asChild>
+                <Link to="/#about">
+                  {t('common.learnMore')}
+                </Link>
               </Button>
             </motion.div>
 
