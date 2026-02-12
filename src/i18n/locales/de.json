@@ -15,7 +15,7 @@
   },
   "hero": {
     "badge": "KI-gestützte Empfehlungen",
-    "title": "Finden Sie sofort Ihr perfektes Auto",
+    "title": "Finden Sie sofort Ihr <1>perfektes Auto</1>",
     "subtitle": "Unsere intelligente Empfehlungsmaschine analysiert Ihre Vorlieben, um Sie mit dem idealen Fahrzeug auf dem heutigen Markt zusammenzubringen.",
     "stat1": "Analysierte Autos",
     "stat2": "Zufriedenheit",
@@ -61,7 +61,7 @@
   "cta": {
     "title": "Bereit, Ihr Traumauto zu finden?",
     "subtitle": "Hören Sie auf zu raten und fangen Sie an zu fahren. Lassen Sie sich heute von AutoGenius zu Ihrem perfekten Fahrzeug führen.",
-    "button": "Personalisierte Empfehlungen erhalten"
+    "button": "Empfehlungen erhalten"
   },
   "preferences": {
     "step": "Schritt",
@@ -118,9 +118,11 @@
     "details_title": "Ihre Anfrage-Details",
     "name_label": "Name",
     "email_label": "E-Mail",
+    "phone_label": "Telefonnummer",
     "message_label": "Nachricht",
     "placeholder_name": "Ihr Name",
     "placeholder_email": "ihre@email.de",
+    "placeholder_phone": "+49 000 000000",
     "placeholder_message": "Erzählen Sie uns mehr über Ihre Anfrage...",
     "success": "Ihre Nachricht wurde gesendet!",
     "success_desc": "Wir werden uns in Kürze bei Ihnen melden.",

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroCar from "@/assets/volkswagen-hero.jpg";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 
 interface HeroSectionProps {
@@ -15,7 +15,7 @@ export function HeroSection({ onGetStarted }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-secondary/20" />
-      
+
       <motion.div
         className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-3xl"
         animate={{
@@ -38,9 +38,9 @@ export function HeroSection({ onGetStarted }: HeroSectionProps) {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
             >
-              {t('hero.title').split('Perfect Car')[0]}
-              <span className="gradient-text">Perfect Car</span>
-              {t('hero.title').split('Perfect Car')[1]}
+              <Trans i18nKey="hero.title">
+                Find Your <span className="gradient-text">Perfect Car</span> Instantly
+              </Trans>
             </motion.h1>
 
             <motion.p
@@ -58,8 +58,8 @@ export function HeroSection({ onGetStarted }: HeroSectionProps) {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Button 
-                variant="hero" 
+              <Button
+                variant="hero"
                 size="xl"
                 onClick={onGetStarted}
                 className="group"

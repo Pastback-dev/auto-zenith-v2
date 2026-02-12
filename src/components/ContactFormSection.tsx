@@ -36,6 +36,7 @@ export function ContactFormSection({ initialPreferences, selectedCars, onBack }:
     email: z.string().email({
       message: t('contact.validation.email_invalid'),
     }),
+    phone: z.string().optional(),
     message: z.string().min(10, {
       message: t('contact.validation.message_min'),
     }).max(500, {
@@ -48,6 +49,7 @@ export function ContactFormSection({ initialPreferences, selectedCars, onBack }:
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       message: "",
     },
   });
@@ -117,13 +119,22 @@ export function ContactFormSection({ initialPreferences, selectedCars, onBack }:
                   <FormMessage />
                 </FormItem>
               )} />
-              <FormField control={form.control} name="email" render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t('contact.email_label')}</FormLabel>
-                  <FormControl><Input type="email" placeholder={t('contact.placeholder_email')} {...field} /></FormControl>
-                  <FormMessage />
-                </FormItem>
-              )} />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField control={form.control} name="email" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t('contact.email_label')}</FormLabel>
+                    <FormControl><Input type="email" placeholder={t('contact.placeholder_email')} {...field} /></FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+                <FormField control={form.control} name="phone" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t('contact.phone_label')}</FormLabel>
+                    <FormControl><Input type="tel" placeholder={t('contact.placeholder_phone')} {...field} /></FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+              </div>
               <FormField control={form.control} name="message" render={({ field }) => (
                 <FormItem>
                   <FormLabel>{t('contact.message_label')}</FormLabel>
