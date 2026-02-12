@@ -40,7 +40,7 @@
   "testimonials": {
     "title": "Was unsere Nutzer sagen",
     "subtitle": "Verlassen Sie sich nicht nur auf unser Wort – hören Sie von zufriedenen Kunden, die ihr perfektes Auto gefunden haben.",
-    "t1_quote": "AutoGenius hat die Suche nach meinem Traumauto unglaublich einfach gemacht. Die Empfehlungen waren genau richtig!",
+    "t1_quote": "AutoGenius hat die Suche nach meinem Auto unglaublich einfach gemacht. Die Empfehlungen waren genau richtig!",
     "t1_title": "Zufriedene Kundin",
     "t2_quote": "Ich war von der Auswahl überwältigt, aber AutoGenius hat sie perfekt eingegrenzt. Die KI-Einblicke waren unbezahlbar.",
     "t2_title": "Erstkäufer",
@@ -59,7 +59,7 @@
     "stat3_label": "Abgedeckte Marken"
   },
   "cta": {
-    "title": "Bereit, Ihr Traumauto zu finden?",
+    "title": "Bereit, Ihr <1>Auto</1> zu finden?",
     "subtitle": "Hören Sie auf zu raten und fangen Sie an zu fahren. Lassen Sie sich heute von AutoGenius zu Ihrem perfekten Fahrzeug führen.",
     "button": "Empfehlungen erhalten"
   },

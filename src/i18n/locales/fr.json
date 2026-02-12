@@ -40,7 +40,7 @@
   "testimonials": {
     "title": "Avis de nos utilisateurs",
     "subtitle": "Découvrez les témoignages de clients satisfaits qui ont trouvé leur voiture idéale.",
-    "t1_quote": "AutoGenius a rendu la recherche de ma voiture de rêve incroyablement facile !",
+    "t1_quote": "AutoGenius a rendu la recherche de ma voiture incroyablement facile !",
     "t1_title": "Cliente satisfaite",
     "t2_quote": "J'étais submergé par les choix, mais l'IA a parfaitement ciblé mes besoins.",
     "t2_title": "Premier acheteur",
@@ -59,7 +59,7 @@
     "stat3_label": "Marques couvertes"
   },
   "cta": {
-    "title": "Prêt à trouver votre voiture ?",
+    "title": "Prêt à trouver votre <1>voiture</1> ?",
     "subtitle": "Arrêtez de deviner et commencez à conduire. Laissez AutoGenius vous guider dès aujourd'hui.",
     "button": "Obtenir mes recommandations"
   },

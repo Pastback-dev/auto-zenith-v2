@@ -120,8 +120,8 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
               <div key={s} className="flex items-center">
                 <motion.div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${s <= step
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted text-muted-foreground'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-muted text-muted-foreground'
                     }`}
                   animate={{ scale: s === step ? 1.1 : 1 }}
                 >
@@ -288,7 +288,7 @@ export function PreferencesForm({ onSubmit, onComplete, onBack }: PreferencesFor
                     <Sparkles className="w-5 h-5 text-primary" />
                     {t('preferences.summary_title')}
                   </h4>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="flex flex-col gap-3 text-sm">
                     <div>
                       <span className="text-muted-foreground">{t('contact.budget_label')}</span>
                       <span className="ml-2 font-medium">{formatPrice(budget[0])} - {formatPrice(budget[1])}</span>

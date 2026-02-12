@@ -40,7 +40,7 @@
   "testimonials": {
     "title": "What Our Users Say",
     "subtitle": "Don't just take our word for it – hear from satisfied customers who found their perfect car.",
-    "t1_quote": "AutoGenius made finding my dream car incredibly easy. The recommendations were spot on!",
+    "t1_quote": "AutoGenius made finding my car incredibly easy. The recommendations were spot on!",
     "t1_title": "Satisfied Customer",
     "t2_quote": "I was overwhelmed by the choices, but AutoGenius narrowed it down perfectly. The AI insights were invaluable.",
     "t2_title": "First-time Buyer",
@@ -59,7 +59,7 @@
     "stat3_label": "Brands Covered"
   },
   "cta": {
-    "title": "Ready to Find Your Dream Car?",
+    "title": "Ready to Find Your <1>Car</1>?",
     "subtitle": "Stop guessing and start driving. Let AutoGenius guide you to your perfect vehicle today.",
     "button": "Get Personalized Recommendations"
   },

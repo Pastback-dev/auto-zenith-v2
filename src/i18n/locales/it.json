@@ -7,7 +7,7 @@
         "ourSelection": "La nostra selezione",
         "about": "Chi siamo",
         "back": "Indietro",
-        "send": "Invia messaggio",
+        "send": "Invia",
         "reset": "Reimposta",
         "continue": "Continua",
         "ready": "Pronto",
@@ -40,7 +40,7 @@
     "testimonials": {
         "title": "Cosa dicono i nostri utenti",
         "subtitle": "Non crederci sulla parola – ascolta i clienti soddisfatti che hanno trovato la loro auto perfetta.",
-        "t1_quote": "AutoGenius ha reso incredibilmente facile trovare l'auto dei miei sogni. Le raccomandazioni erano perfette!",
+        "t1_quote": "AutoGenius ha reso incredibilmente facile trovare la mia auto. Le raccomandazioni erano perfette!",
         "t1_title": "Cliente soddisfatto",
         "t2_quote": "Ero sopraffatto dalle scelte, ma AutoGenius ha ristretto perfettamente le opzioni. Le informazioni dell'IA sono state preziose.",
         "t2_title": "Acquirente per la prima volta",
@@ -59,7 +59,7 @@
         "stat3_label": "Marchi coperti"
     },
     "cta": {
-        "title": "Pronto a trovare l'auto dei tuoi sogni?",
+        "title": "Pronto a trovare la tua <1>auto</1>?",
         "subtitle": "Smetti di indovinare e inizia a guidare. Lascia che AutoGenius ti guidi verso il tuo veicolo perfetto oggi.",
         "button": "Inizia Ora"
     },

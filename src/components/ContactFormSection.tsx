@@ -86,7 +86,7 @@ export function ContactFormSection({ initialPreferences, selectedCars, onBack }:
                 {t('contact.details_title')}
               </h4>
               {initialPreferences && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-4">
+                <div className="flex flex-col gap-3 text-sm mb-4">
                   <div>
                     <span className="text-muted-foreground">{t('contact.budget_label')}</span>
                     <span className="ml-2 font-medium">{formatPrice(initialPreferences.budget[0])} - {formatPrice(initialPreferences.budget[1])}</span>
