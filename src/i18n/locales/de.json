@@ -3,18 +3,18 @@
     "getStarted": "Jetzt Starten",
     "learnMore": "Mehr Erfahren",
     "contact": "Kontakt",
-    "howItWorks": "Wie es funktioniert",
+    "howItWorks": "Anleitung",
     "ourSelection": "Unsere Auswahl",
     "about": "Über uns",
     "back": "Zurück",
-    "send": "Nachricht Senden",
+    "send": "Absenden",
     "reset": "Neu starten",
     "continue": "Weiter",
     "ready": "Fertig",
     "any": "Beliebig"
   },
   "hero": {
-    "badge": "KI-gestützte Empfehlungen",
+    "badge": "KI-Empfehlungen",
     "title": "Finden Sie sofort Ihr <1>perfektes Auto</1>",
     "subtitle": "Unsere intelligente Empfehlungsmaschine analysiert Ihre Vorlieben, um Sie mit dem idealen Fahrzeug auf dem heutigen Markt zusammenzubringen.",
     "stat1": "Analysierte Autos",
@@ -24,7 +24,7 @@
   "features": {
     "title": "Warum AutoGenius wählen?",
     "subtitle": "Wir gehen über einfache Filter hinaus, um Ihnen personalisierte, datengesteuerte Autoempfehlungen zu geben.",
-    "f1_title": "KI-gestützte Abstimmung",
+    "f1_title": "KI-Matching",
     "f1_desc": "Unsere fortschrittliche KI analysiert Ihre Bedürfnisse, um Autos zu finden, die wirklich zu Ihrem Lebensstil passen.",
     "f2_title": "Kosteneffiziente Auswahl",
     "f2_desc": "Erhalten Sie Empfehlungen, die nicht nur den Preis, sondern auch die langfristigen Betriebskosten berücksichtigen.",
@@ -32,9 +32,9 @@
     "f3_desc": "Verstehen Sie das Wartungsprofil jedes Fahrzeugs, bevor Sie eine Entscheidung treffen.",
     "f4_title": "Sicherheit & Zuverlässigkeit",
     "f4_desc": "Wir priorisieren Fahrzeuge mit hohen Sicherheitsbewertungen und bewährter Zuverlässigkeit.",
-    "f5_title": "Umweltfreundliche Optionen",
+    "f5_title": "E-Mobilität",
     "f5_desc": "Entdecken Sie eine breite Palette von Elektro- und Hybridfahrzeugen, die auf Ihre grünen Vorlieben zugeschnitten sind.",
-    "f6_title": "Familien- & Lifestyle-Passform",
+    "f6_title": "Für Familien",
     "f6_desc": "Ob für den täglichen Arbeitsweg oder Familienabenteuer, finden Sie ein Auto, das zu jedem Aspekt Ihres Lebens passt."
   },
   "testimonials": {
@@ -78,8 +78,8 @@
     "final_title": "Letzte Präferenzen",
     "final_desc": "Helfen Sie uns, Ihre Empfehlungen fein abzustimmen",
     "maintenance_title": "Wartungspriorität",
-    "summary_title": "Zusammenfassung Ihrer Präferenzen",
-    "low_cost": "Niedrige Kosten Priorität",
+    "summary_title": "Ihre Auswahl",
+    "low_cost": "Günstiger",
     "balanced": "Ausgewogen",
     "performance_first": "Leistung zuerst",
     "types": {
@@ -108,17 +108,17 @@
     "subtitle": "Basierend auf Ihren Präferenzen haben wir {{count}} außergewöhnliche Fahrzeuge gefunden.",
     "ai_badge": "KI-gestützte Treffer",
     "adjust": "Präferenzen anpassen",
-    "contact_selection": "Kontaktieren Sie uns bezüglich der Auswahl",
+    "contact_selection": "Anfrage senden",
     "selection_hint": "Klicken Sie auf Karten, um bis zu 3 Fahrzeuge zum Vergleich auszuwählen",
     "selected_count": "({{count}}/3 ausgewählt)"
   },
   "contact": {
     "title": "Kontaktieren Sie uns",
     "subtitle": "Haben Sie Fragen oder benötigen Sie weitere Details? Senden Sie uns eine Nachricht!",
-    "details_title": "Ihre Anfrage-Details",
+    "details_title": "Ihre Details",
     "name_label": "Name",
     "email_label": "E-Mail",
-    "phone_label": "Telefonnummer",
+    "phone_label": "Telefon",
     "message_label": "Nachricht",
     "placeholder_name": "Ihr Name",
     "placeholder_email": "ihre@email.de",
@@ -140,10 +140,10 @@
   },
   "footer": {
     "desc": "Ihr intelligenter Partner für die Suche nach dem perfekten Fahrzeug, angetrieben durch fortschrittliche KI.",
-    "quick_links": "Schnellzugriff",
+    "quick_links": "Links",
     "legal": "Rechtliches",
     "follow_us": "Folgen Sie uns",
-    "privacy": "Datenschutzrichtlinie",
+    "privacy": "Datenschutz",
     "terms": "Nutzungsbedingungen",
     "cookies": "Cookie-Richtlinie"
   }
