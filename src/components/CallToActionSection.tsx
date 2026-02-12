@@ -31,7 +31,7 @@ export function CallToActionSection({ onGetStarted }: CallToActionSectionProps) 
             variant="hero" 
             size="xl"
             onClick={onGetStarted}
-            className="group glow-primary"
+            className="group glow-primary w-full sm:w-auto text-base md:text-lg py-6 md:py-8"
           >
             {t('cta.button')}
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
